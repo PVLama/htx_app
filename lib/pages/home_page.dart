@@ -40,21 +40,34 @@ class _HomePageState extends State<HomePage> {
     backgroundColor: wcolor,
     expandedHeight: Dimentions.expandedHeight,
     toolbarHeight: Dimentions.toolbarHeight,
-    flexibleSpace: Stack(
-      children: [
-        Positioned.fill(
-          bottom: Dimentions.height35*2,
-          child: FlexibleSpaceBar(
-            background: Image.asset(AppAssets.imgBanner, fit: BoxFit.cover,),
+    flexibleSpace: FlexibleSpaceBar(
+      title: FlexibleTitleHome(),
+      centerTitle: true,
+      titlePadding: EdgeInsets.only(top: Dimentions.height20 * 2),
+      background: Stack(
+        children: [
+          Positioned.fill(
+            bottom: Dimentions.height35 * 2,
+            child: Image.asset(AppAssets.imgBanner, fit: BoxFit.cover),
           ),
-        ),
-        FlexibleSpaceBar(
-          title: FlexibleTitleHome(),
-          centerTitle: true,
-          titlePadding: EdgeInsets.only(top: Dimentions.height20*2),
-        ),
-      ],
-    ),
+        ],
+       ),
+      ),
+    // Stack(
+    //   children: [
+    //     Positioned.fill(
+    //       bottom: Dimentions.height35*2,
+    //       child: FlexibleSpaceBar(
+    //         background: Image.asset(AppAssets.imgBanner, fit: BoxFit.cover,),
+    //       ),
+    //     ),
+    //     FlexibleSpaceBar(
+    //       title: FlexibleTitleHome(),
+    //       centerTitle: true,
+    //       titlePadding: EdgeInsets.only(top: Dimentions.height20*2),
+    //     ),
+    //   ],
+    // ),
   );
 
   Widget bookGuide() => SliverToBoxAdapter(

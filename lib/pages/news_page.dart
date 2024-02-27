@@ -8,8 +8,6 @@ class NewsPage extends StatelessWidget {
     return Container(
       color: Colors.red,
       height: 300,
-      width: 250
-      margin: EdgeInsets.only(top: 20),
     );
   }
 }
