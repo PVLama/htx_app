@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
     body: CustomScrollView(
+
       slivers: [
         homeAppBar(),
         tourSliders(),

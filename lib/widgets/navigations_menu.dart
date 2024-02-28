@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:htx_mh/consts/app_assets.dart';
 import 'package:htx_mh/consts/colors.dart';
 import 'package:htx_mh/pages/account_page.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';

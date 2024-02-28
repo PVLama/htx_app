@@ -39,9 +39,11 @@ class Dimentions{
   static double width25 = screenWidth/16.44;
   static double width30 = screenWidth/13.7;
   static double width35 = screenWidth/11.74;
+  static double width40 = screenWidth/10.275;
   static double width45 = screenWidth/9.13;
   static double width50 = screenWidth/8.22;
   static double width55 = screenWidth/7.47;
+  static double width110 = screenWidth/3.736;
   static double width130 = screenWidth/3.16;
   static double width170 = screenWidth/2.417;
   static double width180 = screenWidth/2.28;
