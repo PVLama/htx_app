@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
-import 'package:htx_mh/utills/text/small_text.dart';
 
 import '../../../consts/app_assets.dart';
 import '../../../consts/colors.dart';

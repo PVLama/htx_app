@@ -3,8 +3,7 @@ import 'package:htx_mh/consts/colors.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/small_text.dart';
 
-import '../item_list/homestay_items.dart';
-
+import '../../item_list/homestay_items.dart';
 
 class HomeStayList extends StatefulWidget {
   const HomeStayList({Key? key}) : super(key: key);
@@ -61,7 +60,7 @@ class _HomeStayListState extends State<HomeStayList> {
                 scrollDirection: Axis.horizontal,
                 itemCount: colors.length,
                 itemBuilder: (context, index){
-                  return HomeStayItems();
+                  return const HomeStayItems();
             }),
           )
         ],

@@ -3,8 +3,9 @@ import 'package:htx_mh/consts/colors.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
 
+import '../../../pages/product_page.dart';
 import '../../../utills/text/big_text.dart';
-import '../item_list/product_items.dart';
+import '../../item_list/product_items.dart';
 
 class ProductListHomePage extends StatefulWidget {
   const ProductListHomePage({Key? key}) : super(key: key);
@@ -42,25 +43,28 @@ class _HomeStayListState extends State<ProductListHomePage> {
               MiddleText(text: "Món ăn đặc sản và quà lưu niệm không thể bỏ qua", size: Dimentions.font16,)
             ],
           ),
-          Container(
-            height: Dimentions.height270,
+          SizedBox(
+            height: Dimentions.height50*5,
             width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(bottom: Dimentions.height10/2),
             child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemCount: colors.length,
                 itemBuilder: (context, index){
-                  return ProductItemsHomePage();
+                  return const ProductItemsHomePage();
                 }),
           ),
           Align(
             alignment: Alignment.center,
-            child: Container(
+            child: SizedBox(
               width: Dimentions.width130,
               height: Dimentions.height40,
-              child: ElevatedButton(onPressed: () {},
+              child: ElevatedButton(onPressed: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()), // Chuyển hướng đến trang ProductPage
+                );
+              },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(wcolor),
                     elevation: MaterialStateProperty.all<double>(Dimentions.height10/2),

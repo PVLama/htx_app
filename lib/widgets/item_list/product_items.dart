@@ -14,7 +14,7 @@ class ProductItemsHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Dimentions.width50*3,
-      margin: EdgeInsets.only(right: Dimentions.width15, top: Dimentions.height10, bottom: Dimentions.height10),
+      margin: EdgeInsets.only(right: Dimentions.width15, top: Dimentions.height10),
       child: Column(
         children: [
           Align(
@@ -23,7 +23,7 @@ class ProductItemsHomePage extends StatelessWidget {
             ClipRRect(
               borderRadius:  BorderRadius.all(Radius.circular(Dimentions.radius10/2)),
               child: Container(
-                height: Dimentions.height50*3,
+                height: Dimentions.height135,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
@@ -35,7 +35,7 @@ class ProductItemsHomePage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: Dimentions.height10/2, left: Dimentions.width10/2, right: Dimentions.width10, bottom: Dimentions.height10/2),
+            padding: EdgeInsets.only(top: Dimentions.height10/2, left: Dimentions.width10/2, right: Dimentions.width10),
             child: Column(
               children: [
                 Column(
@@ -64,24 +64,9 @@ class ProductItemsHomePage extends StatelessWidget {
                     MiddleText(text: "650.000" + "₫", size: Dimentions.font18,)
                   ],
                 ),
-                // Container(
-                //   margin: EdgeInsets.only(top: 5),
-                //   width: MediaQuery.of(context).size.width,
-                //   child: Column(
-                //     crossAxisAlignment: CrossAxisAlignment.sta,
-                //     children: [
-                //       SmallText(text: "2.326.867" + "₫", color: smallTextColors,),
-                //
-                //     ],
-                //   ),
-                // ),
               ],
             ),
           ),
-          // Container(
-          //   color: Colors.green,
-          //   child:
-          // )
         ],
       ),
     );

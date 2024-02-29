@@ -54,21 +54,6 @@ class _HomePageState extends State<HomePage> {
         ],
        ),
       ),
-    // Stack(
-    //   children: [
-    //     Positioned.fill(
-    //       bottom: Dimentions.height35*2,
-    //       child: FlexibleSpaceBar(
-    //         background: Image.asset(AppAssets.imgBanner, fit: BoxFit.cover,),
-    //       ),
-    //     ),
-    //     FlexibleSpaceBar(
-    //       title: FlexibleTitleHome(),
-    //       centerTitle: true,
-    //       titlePadding: EdgeInsets.only(top: Dimentions.height20*2),
-    //     ),
-    //   ],
-    // ),
   );
 
   Widget bookGuide() => SliverToBoxAdapter(
@@ -104,7 +89,7 @@ class _HomePageState extends State<HomePage> {
   Widget productList() => SliverToBoxAdapter(
     child: Container(
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(top: Dimentions.height15),
+      margin: EdgeInsets.only(top: Dimentions.height15, bottom: Dimentions.height20),
       child: const ProductListHomePage(),
     ),
   );
