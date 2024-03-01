@@ -7,8 +7,8 @@ import '../../../consts/colors.dart';
 import '../../../utills/text/middle_text.dart';
 import '../../../utills/text/small_text.dart';
 
-class ProductItemsHomePage extends StatelessWidget {
-  const ProductItemsHomePage({Key? key}) : super(key: key);
+class ProductItemsList extends StatelessWidget {
+  const ProductItemsList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

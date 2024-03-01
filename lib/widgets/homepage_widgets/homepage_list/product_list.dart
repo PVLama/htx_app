@@ -52,7 +52,7 @@ class _HomeStayListState extends State<ProductListHomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: colors.length,
                 itemBuilder: (context, index){
-                  return const ProductItemsHomePage();
+                  return const ProductItemsList();
                 }),
           ),
           Align(
