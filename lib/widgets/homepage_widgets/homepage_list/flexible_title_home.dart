@@ -6,13 +6,30 @@ import 'package:htx_mh/utills/text/small_text.dart';
 
 import '../../../pages/product_page.dart';
 
-class FlexibleTitleHome extends StatelessWidget {
+class FlexibleTitleHome extends StatefulWidget {
+  const FlexibleTitleHome({super.key});
+
+  @override
+  State<FlexibleTitleHome> createState() => _FlexibleTitleHomeState();
+}
+
+class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
+
+  int _currentIndex = 0;
+
+  final List<Widget> _screens = [
+    ProductPage(),
+    ProductPage(),
+    ProductPage()
+  ];
+
   final List<Image> icons = [
     Image.asset(AppAssets.gifTour, height: Dimentions.height30, width: Dimentions.width30,),
     Image.asset(AppAssets.gifHouse, height: Dimentions.height30, width: Dimentions.width30,),
     Image.asset(AppAssets.imgShoppingBag, height: Dimentions.height30, width: Dimentions.width30,),
     Image.asset(AppAssets.imgGuide, height: Dimentions.height30, width: Dimentions.width30,),
   ];
+
   final List<Widget> texts = [
     SmallText(text: "Tour",size: Dimentions.font10, color: bcolor,),
     SmallText(text: "Home stay", size: Dimentions.font10, color: bcolor),
@@ -52,6 +69,7 @@ class FlexibleTitleHome extends StatelessWidget {
       ),
     );
   }
+
   List<Widget> buildFlexibleTitle(BuildContext context, List<Image> icons, List<Widget> texts) {
     final iconsAndTexts = List<Widget>.generate(
       icons.length,
@@ -65,9 +83,7 @@ class FlexibleTitleHome extends StatelessWidget {
                   print('Trang HomeStay');
                   break;
                 case 2:
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const ProductPage()), // Chuyển hướng đến trang ProductPage
-                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ProductPage()));
                   break;
                 case 3:
                   print('Trang cẩm nang');

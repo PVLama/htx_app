@@ -8,13 +8,20 @@ import '../../../utills/text/middle_text.dart';
 import '../../../utills/text/small_text.dart';
 
 class ProductItemsList extends StatelessWidget {
-  const ProductItemsList({Key? key}) : super(key: key);
+  final double containerWidth;
+  final double marginRight;
+  final double fontSize;
+  const ProductItemsList({Key? key,
+    this.containerWidth = 0,
+    this.marginRight = 0,
+    this.fontSize = 0,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Dimentions.width50*3,
-      margin: EdgeInsets.only(right: Dimentions.width15, top: Dimentions.height10),
+      width: containerWidth == 0? Dimentions.width50*3:containerWidth,
+      margin: EdgeInsets.only(right: marginRight == 0? Dimentions.width15:marginRight, top: Dimentions.height10),
       child: Column(
         children: [
           Align(
@@ -44,7 +51,7 @@ class ProductItemsList extends StatelessWidget {
                   children: [
                     SizedBox(
                         width: Dimentions.width50*3,
-                        child: BigText(text: "Thịt trâu gác bếp",size: Dimentions.font16, color: bcolor, maxLines: 1,)
+                        child: BigText(text: "Thịt trâu gác bếp",size: fontSize == 0? Dimentions.font16:fontSize, color: bcolor, maxLines: 1,)
                     ),
                     SizedBox(height: Dimentions.height10/2,),
                     Row(

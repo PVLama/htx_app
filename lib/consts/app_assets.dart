@@ -29,4 +29,5 @@ class AppAssets {
   static const String icHeart = iconPath + 'like1.png';
   static const String icInvoice = iconPath + 'file-invoice.png';
   static const String icMngInvoice = iconPath + 'invoice.png';
+  static const String icArrowBack = iconPath + 'arrow-left.png';
 }

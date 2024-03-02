@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
   Widget productList() => SliverToBoxAdapter(
     child: Container(
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(top: Dimentions.height15, bottom: Dimentions.height20),
+      margin: EdgeInsets.only(top: Dimentions.height15, bottom: Dimentions.height20,),
       child: const ProductListHomePage(),
     ),
   );

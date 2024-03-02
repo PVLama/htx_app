@@ -17,10 +17,10 @@ class ProductListHomePage extends StatefulWidget {
 class _HomeStayListState extends State<ProductListHomePage> {
 
   final List<Color> colors = [
-    Colors.red,
-    Colors.blue,
     Colors.yellowAccent,
     Colors.green,
+    Colors.purpleAccent,
+    Colors.blueGrey,
   ];
   final List<Color> img = [
     Colors.yellowAccent,
@@ -32,16 +32,19 @@ class _HomeStayListState extends State<ProductListHomePage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: Dimentions.height10, left: Dimentions.width15),
+      padding: EdgeInsets.only(top: Dimentions.height10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              BigText(text: "Các sản phẩm tại Mường Hoa", size: Dimentions.font25,),
-              MiddleText(text: "Món ăn đặc sản và quà lưu niệm không thể bỏ qua", size: Dimentions.font16,)
-            ],
+          Padding(
+            padding: EdgeInsets.only(left: Dimentions.width15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                BigText(text: "Các sản phẩm tại Mường Hoa", size: Dimentions.font25,),
+                MiddleText(text: "Món ăn đặc sản và quà lưu niệm không thể bỏ qua", size: Dimentions.font16,)
+              ],
+            ),
           ),
           SizedBox(
             height: Dimentions.height50*5,
@@ -52,7 +55,14 @@ class _HomeStayListState extends State<ProductListHomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: colors.length,
                 itemBuilder: (context, index){
-                  return const ProductItemsList();
+                  EdgeInsets margin = EdgeInsets.zero;
+                  if (index == 0) {
+                    margin = EdgeInsets.only(left: Dimentions.width15);
+                  }
+                  return Container(
+                    margin: margin,
+                      child: const ProductItemsList()
+                  );
                 }),
           ),
           Align(

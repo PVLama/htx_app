@@ -1,11 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:htx_mh/consts/colors.dart';
+import 'package:htx_mh/pages/home_page.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
-import 'package:htx_mh/widgets/custom_widgets/custom_searchbar.dart';
+import 'package:htx_mh/widgets/custom_widgets/custom_search.dart';
 import 'package:htx_mh/widgets/productpage_widgets/all_product.dart';
+import 'package:htx_mh/widgets/productpage_widgets/all_product_list.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({Key? key}) : super(key: key);
@@ -23,13 +25,13 @@ class _ProductPageState extends State<ProductPage> {
     MiddleText(text: "Đặc sản",),
     MiddleText(text: "Trang phục",),
     MiddleText(text: "Hoa Quả",),
-    MiddleText(text: "đá",),
-    MiddleText(text: "chè",),
+    MiddleText(text: "Đồ uống",),
+    MiddleText(text: "Đồ thủ công",),
   ];
 
   final List<Widget> _pages = [
     const AllProducts(),
-    Icon(Icons.access_time_rounded, size: 50),
+    ProductList(),
     Icon(Icons.abc, size: 50),
     Icon(Icons.ac_unit_rounded, size: 50),
     Icon(Icons.query_stats, size: 50),
@@ -43,18 +45,34 @@ class _ProductPageState extends State<ProductPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
-        toolbarHeight: Dimentions.height135,
+        toolbarHeight: Dimentions.height40*2,
         title: Padding(
           padding: EdgeInsets.only(top: Dimentions.height10),
           child: Column(
             children: [
               BigText(text: "Sản Phẩm", color: wcolor,size: Dimentions.font10*3,),
               MiddleText(text: "tại HTX Mường Hoa", color: wcolor, size: Dimentions.font18,),
-              const CustomSearchBar(),
             ],
           ),
         ),
         backgroundColor: const Color(0xFF377A46),
+        leading: IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const HomePage()), // Chuyển hướng đến trang ProductPage
+                  );
+                },
+                icon: Icon(Icons.arrow_back, size: Dimentions.height30, color: wcolor,),
+        ),
+        actions: [
+          IconButton(
+              onPressed: (){
+                showSearch(
+                    context: context,
+                    delegate: CustomSearch());
+              },
+              icon: Icon(Icons.search_rounded, size: Dimentions.height30, color: wcolor,))
+        ],
       ),
       body: Column(
         children: [

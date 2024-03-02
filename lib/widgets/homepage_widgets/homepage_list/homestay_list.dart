@@ -30,7 +30,7 @@ class _HomeStayListState extends State<HomeStayList> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: Dimentions.height20, left: Dimentions.width15),
+      padding: EdgeInsets.only(top: Dimentions.height20),
       child: Column(
         children: [
           Align(
@@ -60,7 +60,14 @@ class _HomeStayListState extends State<HomeStayList> {
                 scrollDirection: Axis.horizontal,
                 itemCount: colors.length,
                 itemBuilder: (context, index){
-                  return const HomeStayItems();
+                  EdgeInsets margin = EdgeInsets.zero;
+                  if (index == 0) {
+                    margin = EdgeInsets.only(left: Dimentions.width15);
+                  }
+                  return Container(
+                    margin: margin,
+                      child: const HomeStayItems()
+                  );
             }),
           )
         ],
