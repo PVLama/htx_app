@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:htx_mh/consts/app_assets.dart';
-import 'package:htx_mh/consts/colors.dart';
+import 'package:htx_mh/resources/app_assets.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/small_text.dart';
 
-import '../../../pages/product_page.dart';
+import '../../../resources/colors.dart';
+import '../../pages/product_page.dart';
 
 class FlexibleTitleHome extends StatefulWidget {
   const FlexibleTitleHome({super.key});

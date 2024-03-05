@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
 
-import '../../../consts/app_assets.dart';
-import '../../../consts/colors.dart';
+import '../../../resources/app_assets.dart';
+import '../../../resources/colors.dart';
 import '../../../utills/text/middle_text.dart';
 import '../../../utills/text/small_text.dart';
 

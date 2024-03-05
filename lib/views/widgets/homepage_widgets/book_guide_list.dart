@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:htx_mh/consts/app_assets.dart';
+import 'package:htx_mh/resources/app_assets.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 
-import '../../../consts/colors.dart';
+import '../../../resources/colors.dart';
 import '../../../utills/text/big_text.dart';
 import '../../../utills/text/middle_text.dart';
+
 
 class BookGuideList extends StatelessWidget {
   const BookGuideList({Key? key}) : super(key: key);

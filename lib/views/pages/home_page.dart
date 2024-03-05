@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:htx_mh/consts/app_assets.dart';
-import 'package:htx_mh/consts/colors.dart';
+import 'package:htx_mh/resources/app_assets.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
-import 'package:htx_mh/widgets/homepage_widgets/homepage_list/homestay_list.dart';
 
-import '../widgets/homepage_widgets/homepage_list/book_guide_list.dart';
-import '../widgets/homepage_widgets/homepage_list/flexible_title_home.dart';
-import '../widgets/homepage_widgets/homepage_list/product_list.dart';
-import '../widgets/homepage_widgets/homepage_list/tour_slide_widget.dart';
+import '../../resources/colors.dart';
+import '../widgets/homepage_widgets/book_guide_list.dart';
+import '../widgets/homepage_widgets/flexible_title_home.dart';
+import '../widgets/homepage_widgets/homestay_list.dart';
+import '../widgets/homepage_widgets/product_list.dart';
+import '../widgets/homepage_widgets/tour_slide_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

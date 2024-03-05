@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:htx_mh/consts/colors.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
+
+import '../../resources/colors.dart';
 
 
 class SmallText extends StatelessWidget {

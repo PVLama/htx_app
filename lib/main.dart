@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:htx_mh/test_page/test_sukien_click.dart';
+import 'package:htx_mh/views/widgets/navigations_menu.dart';
 
-import 'widgets/navigations_menu.dart';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();

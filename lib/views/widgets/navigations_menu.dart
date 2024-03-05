@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:htx_mh/consts/colors.dart';
-import 'package:htx_mh/pages/account_page.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 
+import '../../resources/colors.dart';
+import '../pages/account_page.dart';
 import '../pages/home_page.dart';
 
 class NavigationMenu extends StatelessWidget {

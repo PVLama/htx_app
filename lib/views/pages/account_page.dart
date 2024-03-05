@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
-import 'package:htx_mh/widgets/accountpage_widgets/account_page_body.dart';
-import 'package:htx_mh/widgets/accountpage_widgets/account_page_title.dart';
 
-import '../consts/colors.dart';
-import '../utills/responsives/dimentions.dart';
+import '../../resources/colors.dart';
+import '../../utills/responsives/dimentions.dart';
+import '../widgets/accountpage_widgets/account_page_body.dart';
+import '../widgets/accountpage_widgets/account_page_title.dart';
+
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
