@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:htx_mh/pages/account_page.dart';
 
-import '../consts/colors.dart';
-import '../utills/responsives/dimentions.dart';
+import '../../resources/colors.dart';
+import '../../utills/responsives/dimentions.dart';
+import 'account_page.dart';
 
 class BookHomeStayPage extends StatefulWidget {
   const BookHomeStayPage({Key? key}) : super(key: key);

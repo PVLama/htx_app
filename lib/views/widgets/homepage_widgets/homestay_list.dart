@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:htx_mh/consts/colors.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/small_text.dart';
 
-import '../../item_list/homestay_items.dart';
+import '../../../resources/colors.dart';
+import '../item_list/homestay_items.dart';
 
 class HomeStayList extends StatefulWidget {
   const HomeStayList({Key? key}) : super(key: key);

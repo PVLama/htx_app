@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:htx_mh/consts/colors.dart';
-// import 'package:htx_mh/pages/account_page.dart';
-import 'package:htx_mh/resources/colors.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 
-import 'package:htx_mh/utills/text/big_text.dart';
-import 'package:htx_mh/utills/text/middle_text.dart';
-import 'package:htx_mh/utills/text/small_text.dart';
-import 'package:htx_mh/resources/colors.dart';
-import 'package:htx_mh/utills/responsives/dimentions.dart';
-import 'package:htx_mh/views/pages/account_page.dart';
-import 'package:htx_mh/views/pages/home_page.dart';
+import '../../resources/colors.dart';
+import '../pages/account_page.dart';
+import '../pages/home_page.dart';
+
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());

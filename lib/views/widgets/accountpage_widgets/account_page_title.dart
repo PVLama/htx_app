@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:htx_mh/consts/app_assets.dart';
+import 'package:htx_mh/resources/app_assets.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
 import 'package:htx_mh/utills/text/small_text.dart';
 
-import '../../consts/colors.dart';
-import '../../utills/responsives/dimentions.dart';
+import '../../../resources/colors.dart';
+import '../../../utills/responsives/dimentions.dart';
+
 
 class AccountTitle extends StatelessWidget {
   final List<Widget> icons = [

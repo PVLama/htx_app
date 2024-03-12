@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:htx_mh/consts/colors.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
 
-import '../../../pages/product_page.dart';
+import '../../../resources/colors.dart';
 import '../../../utills/text/big_text.dart';
-import '../../item_list/product_items.dart';
+import '../../pages/product_page.dart';
+import '../item_list/product_items.dart';
 
 class ProductListHomePage extends StatefulWidget {
   const ProductListHomePage({Key? key}) : super(key: key);

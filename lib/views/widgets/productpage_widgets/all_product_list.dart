@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
-import 'package:htx_mh/widgets/item_list/product_items.dart';
+
+import '../item_list/product_items.dart';
 
 class ProductList extends StatefulWidget {
   const ProductList({Key? key}) : super(key: key);

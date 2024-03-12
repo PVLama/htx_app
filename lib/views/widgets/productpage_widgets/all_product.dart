@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:htx_mh/widgets/item_list/homestay_items.dart';
-
-import '../../utills/responsives/dimentions.dart';
-import '../../utills/text/big_text.dart';
-import '../../utills/text/middle_text.dart';
+import '../../../utills/responsives/dimentions.dart';
+import '../../../utills/text/big_text.dart';
+import '../../../utills/text/middle_text.dart';
+import '../item_list/homestay_items.dart';
 import '../item_list/product_items.dart';
 
 class AllProducts extends StatefulWidget {

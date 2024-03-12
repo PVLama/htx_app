@@ -1,13 +1,14 @@
 
 import 'package:flutter/material.dart';
-import 'package:htx_mh/consts/colors.dart';
-import 'package:htx_mh/pages/home_page.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
-import 'package:htx_mh/widgets/custom_widgets/custom_search.dart';
-import 'package:htx_mh/widgets/productpage_widgets/all_product.dart';
-import 'package:htx_mh/widgets/productpage_widgets/all_product_list.dart';
+
+import '../../resources/colors.dart';
+import '../widgets/custom_widgets/custom_search.dart';
+import '../widgets/navigations_menu.dart';
+import '../widgets/productpage_widgets/all_product.dart';
+import '../widgets/productpage_widgets/all_product_list.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({Key? key}) : super(key: key);
@@ -59,7 +60,7 @@ class _ProductPageState extends State<ProductPage> {
         leading: IconButton(
                 onPressed: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const HomePage()), // Chuyển hướng đến trang ProductPage
+                    MaterialPageRoute(builder: (context) => const NavigationMenu()), // Chuyển hướng đến trang ProductPage
                   );
                 },
                 icon: Icon(Icons.arrow_back, size: Dimentions.height30, color: wcolor,),

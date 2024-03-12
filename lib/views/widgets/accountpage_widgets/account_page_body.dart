@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../consts/app_assets.dart';
-import '../../consts/colors.dart';
-import '../../utills/responsives/dimentions.dart';
-import '../../utills/text/small_text.dart';
+import '../../../resources/app_assets.dart';
+import '../../../resources/colors.dart';
+import '../../../utills/responsives/dimentions.dart';
+import '../../../utills/text/small_text.dart';
+
 
 class AccountPageBody extends StatelessWidget {
   final List<Widget> icons = [

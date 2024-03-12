@@ -3,10 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../pages/page_signup.dart';
 // import '../ultils/colors.dart';
-import '../consts/colors.dart';
-import '../utills/text/middle_text.dart';
-import '../utills/text/small_text.dart';
-import '../utills/responsives/dimentions.dart';
+import 'package:htx_mh/utills/text/big_text.dart';
+import 'package:htx_mh/utills/text/middle_text.dart';
+import 'package:htx_mh/utills/text/small_text.dart';
+import 'package:htx_mh/resources/colors.dart';
+import 'package:htx_mh/utills/responsives/dimentions.dart';
+// import '../utills/text/middle_text.dart';
+// import '../utills/text/small_text.dart';
+// import '../utills/responsives/dimentions.dart';
 import 'package:flutter/material.dart';
 
 class PageLogin extends StatelessWidget {
