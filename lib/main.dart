@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import './pages/page_login.dart';
+import './pages/page_signup.dart';
 import 'widgets/navigations_menu.dart';
 
 void main() async {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const NavigationMenu(),
+      home: PageSignUp(),
     );
   }
 }
