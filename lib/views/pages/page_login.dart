@@ -38,7 +38,7 @@ class PageLogin extends StatelessWidget {
                       height: Dimentions.height40,
                       width: Dimentions.width10*10,
                     ),
-                    MiddleText(text: "Welcome back to Doctor Care", size: Dimentions.font20,),
+                    MiddleText(text: "HỢP TÁC XÃ MƯỜNG THANH", size: Dimentions.font20,),
                     SizedBox(height: Dimentions.height10,),
                     SmallText(text: "Đăng nhập để tiếp tục", color: Colors.white, size: Dimentions.font16,),
                   ],
