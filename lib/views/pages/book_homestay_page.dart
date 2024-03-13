@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:htx_mh/utills/text/big_text.dart';
 
 import '../../resources/colors.dart';
 import '../../utills/responsives/dimentions.dart';
@@ -28,6 +29,11 @@ class _TourPageState extends State<BookHomeStayPage> {
     pinned: false,
     backgroundColor: wcolor,
     expandedHeight: Dimentions.expandedHeight,
-    title: AccountPage(),
+    title: Container(
+      height: 200,
+      width:200,
+      color: Colors.green,
+      child: Center(child: BigText(text: "Trang HomeStay",)),
+    ),
   );
 }

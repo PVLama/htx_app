@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:htx_mh/resources/app_assets.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 
+import '../../data/products_data.dart';
 import '../../resources/colors.dart';
 import '../widgets/homepage_widgets/book_guide_list.dart';
 import '../widgets/homepage_widgets/flexible_title_home.dart';
@@ -10,8 +11,8 @@ import '../widgets/homepage_widgets/product_list.dart';
 import '../widgets/homepage_widgets/tour_slide_widget.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
 
+  const HomePage({super.key,});
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     expandedHeight: Dimentions.expandedHeight,
     toolbarHeight: Dimentions.toolbarHeight,
     flexibleSpace: FlexibleSpaceBar(
-      title: FlexibleTitleHome(),
+      title: const FlexibleTitleHome(),
       centerTitle: true,
       titlePadding: EdgeInsets.only(top: Dimentions.height20 * 2),
       background: Stack(
@@ -89,8 +90,8 @@ class _HomePageState extends State<HomePage> {
   Widget productList() => SliverToBoxAdapter(
     child: Container(
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(top: Dimentions.height15, bottom: Dimentions.height20,),
-      child: const ProductListHomePage(),
+      margin: EdgeInsets.only(top: Dimentions.height20, bottom: Dimentions.height20,),
+      child:  ProductListHomePage(),
     ),
   );
 

@@ -8,7 +8,7 @@ class CustomSearch extends SearchDelegate{
     "Mũ thổ cẩm",
     "Hoa quả",
     "Đồ thủ công",
-    "dsádfdsfad",
+    "Váy thổ cẩm",
     "Thịt trâu",
   ];
 
@@ -59,9 +59,7 @@ class CustomSearch extends SearchDelegate{
         return ListTile(
           title: Text(suggest),
           onTap: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => DetailPage(data: suggest)),
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(data: suggest)),
             );
             // query = suggest;
             // showResults(context);

@@ -4,11 +4,12 @@ import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
 
+import '../../data/products_data.dart';
 import '../../resources/colors.dart';
 import '../widgets/custom_widgets/custom_search.dart';
+import '../widgets/item_list/product_items.dart';
 import '../widgets/navigations_menu.dart';
 import '../widgets/productpage_widgets/all_product.dart';
-import '../widgets/productpage_widgets/all_product_list.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({Key? key}) : super(key: key);
@@ -20,7 +21,6 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
 
   int current = 0;
-
   final List<Widget> _texts = [
     MiddleText(text: "Tất cả",),
     MiddleText(text: "Đặc sản",),
@@ -30,15 +30,22 @@ class _ProductPageState extends State<ProductPage> {
     MiddleText(text: "Đồ thủ công",),
   ];
 
-  final List<Widget> _pages = [
-    const AllProducts(),
-    ProductList(),
-    Icon(Icons.abc, size: 50),
-    Icon(Icons.ac_unit_rounded, size: 50),
-    Icon(Icons.query_stats, size: 50),
-    Icon(Icons.star, size: 50),
-  ];
-
+  late List<List<Widget>> _pages;
+  @override
+  void initState() {
+    super.initState();
+    _initializePages();
+  }
+  void _initializePages() {
+    _pages = [
+      [const AllProducts()],
+      productData.dacSan.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18, maxLines: 2,),).toList(),
+      productData.dacSan.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18,)).toList(),
+      productData.hoaQua.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18,)).toList(),
+      productData.dacSan.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18,)).toList(),
+      productData.hoaQua.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18,)).toList(),
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -154,6 +161,22 @@ class _ProductPageState extends State<ProductPage> {
   );
 
   Widget buildBody() => Expanded(
-    child: _pages[current]
+    child: _pages[current].isEmpty ? const SizedBox() : current == 0 ? SingleChildScrollView(
+      child: Column(
+        children: _pages[current],
+      ),
+    ) : GridView.builder(
+        itemCount: _pages[current].length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.73
+        ),
+        itemBuilder: (BuildContext context, int index){
+          return Container(
+              margin: EdgeInsets.symmetric(horizontal: Dimentions.width10, vertical: Dimentions.height10),
+              child: _pages[current][index]
+          );
+        }
+    ),
   );
 }

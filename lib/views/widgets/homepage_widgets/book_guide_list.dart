@@ -16,8 +16,8 @@ class BookGuideList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BigText(text: "Tour du lịch yêu thích", size: Dimentions.font25,),
-        MiddleText(text: "Tour du lịch hot nhất được HTX Mường Hoa đề xuất", size: Dimentions.font16,),
+        BigText(text: "Tour du lịch yêu thích", size: Dimentions.font24,),
+        MiddleText(text: "Tour du lịch hot nhất được HTX Mường Hoa đề xuất", size: Dimentions.font15,),
         listImage(context),
       ],
     );
@@ -128,7 +128,7 @@ class BookGuideList extends StatelessWidget {
                 ),
               ),
             ),
-            child: BigText(text: "Xem tất cả", size: Dimentions.font16,),
+            child: BigText(text: "Xem tất cả", size: Dimentions.font15,),
           ),
         ),
       ],
