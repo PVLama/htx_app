@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:htx_mh/resources/app_assets.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/small_text.dart';
+import 'package:htx_mh/views/pages/book_homestay_page.dart';
+import 'package:htx_mh/views/pages/guide_tour_page.dart';
 
 import '../../../resources/colors.dart';
 import '../../pages/product_page.dart';
@@ -77,16 +79,16 @@ class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
             onTap: (){
               switch (index) {
                 case 0:
-                  print('Trang tour');
+                  print("Trang tour");
                   break;
                 case 1:
-                  print('Trang HomeStay');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const BookHomeStayPage()),); // Chuyển hướng đến trang ProductPage
                   break;
                 case 2:
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ProductPage()));
                   break;
                 case 3:
-                  print('Trang cẩm nang');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const GuideTourPage()));
                   break;
                 default:
                   break;

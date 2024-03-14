@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
 
+import '../../../data/products_data.dart';
 import '../../../resources/colors.dart';
 import '../../../utills/text/big_text.dart';
 import '../../pages/product_page.dart';
 import '../item_list/product_items.dart';
 
 class ProductListHomePage extends StatefulWidget {
-  const ProductListHomePage({Key? key}) : super(key: key);
+  const ProductListHomePage({Key? key,}) : super(key: key);
 
   @override
   State<ProductListHomePage> createState() => _HomeStayListState();
@@ -20,12 +21,6 @@ class _HomeStayListState extends State<ProductListHomePage> {
     Colors.yellowAccent,
     Colors.green,
     Colors.purpleAccent,
-    Colors.blueGrey,
-  ];
-  final List<Color> img = [
-    Colors.yellowAccent,
-    Colors.green,
-    Colors.black,
     Colors.blueGrey,
   ];
 
@@ -41,8 +36,8 @@ class _HomeStayListState extends State<ProductListHomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BigText(text: "Các sản phẩm tại Mường Hoa", size: Dimentions.font25,),
-                MiddleText(text: "Món ăn đặc sản và quà lưu niệm không thể bỏ qua", size: Dimentions.font16,)
+                BigText(text: "Các sản phẩm tại Mường Hoa", size: Dimentions.font24,),
+                MiddleText(text: "Món ăn đặc sản và quà lưu niệm không thể bỏ qua", size: Dimentions.font15,)
               ],
             ),
           ),
@@ -61,7 +56,7 @@ class _HomeStayListState extends State<ProductListHomePage> {
                   }
                   return Container(
                     margin: margin,
-                      child: const ProductItemsList()
+                      child: ProductItemsList(productName: productData.nameProduct[index],)
                   );
                 }),
           ),
@@ -84,7 +79,7 @@ class _HomeStayListState extends State<ProductListHomePage> {
                         ),
                     ),
                   ),
-                  child: BigText(text: "Xem tất cả", size: Dimentions.font16,),
+                  child: BigText(text: "Xem tất cả", size: Dimentions.font15,),
           ),
             ),
           ),
