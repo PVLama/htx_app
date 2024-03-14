@@ -30,4 +30,6 @@ class AppAssets {
   static const String icInvoice = iconPath + 'file-invoice.png';
   static const String icMngInvoice = iconPath + 'invoice.png';
   static const String icArrowBack = iconPath + 'arrow-left.png';
+  static const String icGoogle = iconPath + 'ggoog.jpeg';
+  static const String icFacebook = iconPath + 'fb.png';
 }

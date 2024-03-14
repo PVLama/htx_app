@@ -12,6 +12,8 @@ import 'package:htx_mh/resources/colors.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/views/pages/account_page.dart';
 import 'package:htx_mh/views/pages/home_page.dart';
+import 'package:htx_mh/views/pages/page_login.dart';
+import 'package:htx_mh/views/pages/page_signup.dart';
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({Key? key}) : super(key: key);
   
@@ -58,8 +60,10 @@ class NavigationController extends GetxController{
 
   final screens = [
      const HomePage(),
-    Container(color: Colors.orange,),
+    Container(color: Colors.red,),
     Container(color: Colors.brown,),
+    //  PageLogin(),
+    // PageSignUp(),
     const AccountPage()
   ];
 }
