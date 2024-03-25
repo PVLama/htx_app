@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:htx_mh/models/hotel_model.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
 
@@ -6,17 +7,22 @@ import '../../../resources/app_assets.dart';
 import '../../../resources/colors.dart';
 
 class HomeStayItems extends StatelessWidget {
-  const HomeStayItems({Key? key}) : super(key: key);
+  final HotelModel hotelModel;
+  final double marginRight;
+  const HomeStayItems({Key? key,
+    required this.hotelModel,
+    this.marginRight = 0
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: Dimentions.width170,
-      margin: EdgeInsets.only(right: Dimentions.width15, top: Dimentions.height10, bottom: Dimentions.height10),
+      margin: EdgeInsets.only(right: marginRight == 0? Dimentions.width15:marginRight, top: Dimentions.height10, bottom: Dimentions.height10,),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Dimentions.radius10),
           color: wcolor,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Color(0x3F000000),
               blurRadius: 4,
@@ -67,7 +73,7 @@ class HomeStayItems extends StatelessWidget {
                         children: [
                           SizedBox(
                             width: Dimentions.width50*3,
-                              child: MiddleText(text: "HMong SitterHouse adfdfadf", color: wcolor, maxLines: 1,)
+                              child: MiddleText(text: hotelModel.hotelName, color: wcolor, maxLines: 1,)
                           ),
                           SizedBox(height: Dimentions.height10/2,),
                           Row(
@@ -94,7 +100,7 @@ class HomeStayItems extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(child: Icon(Icons.location_on, color: iconsColors, size: Dimentions.font18,),),
-                    Expanded(child: MiddleText(text: "Bản Pho, Hầu Thào, Lào Cai ádfadsfádsds", maxLines: 2, size: Dimentions.font15, ))
+                    Expanded(child: MiddleText(text: hotelModel.address, maxLines: 2, size: Dimentions.font15, ))
                   ],
                 ),
                 Container(
@@ -103,8 +109,7 @@ class HomeStayItems extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      // SmallText(text: "2.326.867" + "₫", color: smallTextColors,),
-                      MiddleText(text: "1.745.002" + "₫", color: redColor,)
+                      MiddleText(text: hotelModel.price, color: redColor,)
                     ],
                   ),
                 ),

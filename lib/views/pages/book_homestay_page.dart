@@ -3,7 +3,6 @@ import 'package:htx_mh/utills/text/big_text.dart';
 
 import '../../resources/colors.dart';
 import '../../utills/responsives/dimentions.dart';
-import 'account_page.dart';
 
 class BookHomeStayPage extends StatefulWidget {
   const BookHomeStayPage({Key? key}) : super(key: key);

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:htx_mh/models/tour_model.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/viewmodels/tour_slide_view_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -19,7 +20,6 @@ class _TourSlideState extends State<TourSlide> {
 
   final TourSlideViewModel _tourSlideViewModel =  TourSlideViewModel();
 
-  // var dataTour = TourSlideViewModel();
   int activeIndex = 0;
 
   @override
@@ -39,7 +39,7 @@ class _TourSlideState extends State<TourSlide> {
                     itemCount: _tourSlideViewModel.tours.length,
                     itemBuilder: (BuildContext context, int index, int realIndex) {
                       final tour = _tourSlideViewModel.tours[index];
-                      return buildImage(tour.image, tour.tourName, tour.address, tour.evaluation, tour.comment, index);
+                      return buildImage(tour, index);
                     },
                   ),
                   SizedBox(height: Dimentions.height10,),
@@ -49,13 +49,13 @@ class _TourSlideState extends State<TourSlide> {
             );
   }
 
-  Widget buildImage(Color color, String tourName, String address, String evaluation, String comment, int index) => Stack(
+  Widget buildImage(TourModel tourModel, int index) => Stack(
     children: [
       Container(
         height: Dimentions.height40*4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(Dimentions.radius10),
-        color: color,
+        color: tourModel.image,
       ),
       ),
       Align(
@@ -84,22 +84,22 @@ class _TourSlideState extends State<TourSlide> {
             children: [
               Row(
                 children: [
-                  Expanded(child: BigText(text: tourName, size: Dimentions.font20,))
+                  Expanded(child: BigText(text: tourModel.tourName, size: Dimentions.font20,))
                 ],
               ),
               Row(
                 children: [
                   SizedBox(child: Icon(Icons.location_on, color: iconsColors, size: Dimentions.font20,)),
-                  Expanded(child: MiddleText(text: address, )),
+                  Expanded(child: MiddleText(text: tourModel.address, )),
                 ],
               ),
               Row(
                 children: [
                   SizedBox(child: Icon(Icons.star,color: iconsStarColors,size: Dimentions.font20),),
-                  Expanded(child: SmallText(text: evaluation, color: smallTextColors,)),
+                  Expanded(child: SmallText(text: tourModel.evaluation, color: smallTextColors,)),
                   // SizedBox(width: Dimentions.width10,),
                   SizedBox(child: Icon(Icons.chat_rounded,color: iconsColors,size: Dimentions.font20),),
-                  Expanded(child: SmallText(text: comment, color: smallTextColors, ))
+                  Expanded(child: SmallText(text: tourModel.comment, color: smallTextColors, ))
                 ],
               )
             ],

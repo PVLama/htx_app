@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:htx_mh/data/products_data.dart';
+import 'package:htx_mh/models/product_model.dart';
 import 'package:htx_mh/resources/app_assets.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/small_text.dart';
 import 'package:htx_mh/views/pages/book_homestay_page.dart';
 import 'package:htx_mh/views/pages/guide_tour_page.dart';
+import 'package:htx_mh/views/pages/hotel_page.dart';
 
 import '../../../resources/colors.dart';
 import '../../pages/product_page.dart';
@@ -19,11 +22,11 @@ class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
 
   int _currentIndex = 0;
 
-  final List<Widget> _screens = [
-    ProductPage(),
-    ProductPage(),
-    ProductPage()
-  ];
+  // final List<Widget> _screens = [
+  //   ProductPage(),
+  //   ProductPage(),
+  //   ProductPage()
+  // ];
 
   final List<Image> icons = [
     Image.asset(AppAssets.gifTour, height: Dimentions.height30, width: Dimentions.width30,),
@@ -49,16 +52,16 @@ class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
       decoration: ShapeDecoration(
         color: wcolor,
         shape: RoundedRectangleBorder(
-          side: BorderSide(
+          side: const BorderSide(
             width: 0.30,
             strokeAlign: BorderSide.strokeAlignOutside,
             color: Color(0xFF9E9E9E),
           ),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(Dimentions.radius10),
         ),
-        shadows: [
+        shadows: const [
           BoxShadow(
-            color: shadowFlexibleBar,
+            color: shadowColor,
             blurRadius: 4,
             offset: Offset(0, 4),
             spreadRadius: 0,
@@ -82,7 +85,7 @@ class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
                   print("Trang tour");
                   break;
                 case 1:
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const BookHomeStayPage()),); // Chuyển hướng đến trang ProductPage
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => HotelPage()),); // Chuyển hướng đến trang ProductPage
                   break;
                 case 2:
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ProductPage()));

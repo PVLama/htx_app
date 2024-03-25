@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
+import 'package:htx_mh/viewmodels/products_view_model.dart';
 
-import '../../data/products_data.dart';
+import '../../models/product_model.dart';
 import '../../resources/colors.dart';
 import '../widgets/custom_widgets/custom_search.dart';
-import '../widgets/item_list/product_items.dart';
+import '../widgets/item_widgets/product_items.dart';
 import '../widgets/navigations_menu.dart';
 import '../widgets/productpage_widgets/all_product.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage({Key? key}) : super(key: key);
+  const ProductPage({Key? key,}) : super(key: key);
 
   @override
   State<ProductPage> createState() => _ProductPageState();
@@ -31,23 +32,58 @@ class _ProductPageState extends State<ProductPage> {
   ];
 
   late List<List<Widget>> _pages;
+  final ProductViewModel _productViewModel = ProductViewModel();
+  List<ProductModel> products = [];
+  // CustomSearchTest searchDelegate = ProductSearch(productViewModel: ProductViewModel());
+
   @override
   void initState() {
     super.initState();
-    _initializePages();
+    _pages = List.generate(
+      _texts.length,
+          (index) => _getProductsByCategory(index),
+    );
   }
-  void _initializePages() {
-    _pages = [
-      [const AllProducts()],
-      productData.dacSan.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18, maxLines: 2,),).toList(),
-      productData.dacSan.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18,)).toList(),
-      productData.hoaQua.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18,)).toList(),
-      productData.dacSan.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18,)).toList(),
-      productData.hoaQua.map((product) => ProductItemsList(productName: product, containerWidth: Dimentions.width180, marginRight: 1, fontSize: 18,)).toList(),
-    ];
+
+  List<Widget> _getProductsByCategory(int categoryIndex) {
+    List<ProductModel> productList;
+    switch (categoryIndex) {
+      case 0:
+        return [const AllProducts()];
+      case 1:
+        productList = _productViewModel.createProducts;
+        break;
+      case 2:
+        productList = _productViewModel.createProducts2;
+        break;
+      case 3:
+        productList = _productViewModel.createProducts3;
+        break;
+      case 4:
+        productList = _productViewModel.createProducts2;
+        break;
+      case 5:
+        productList = _productViewModel.createProducts;
+        break;
+      default:
+        return [];
+    }
+
+    return productList
+        .map(
+          (product) => ProductItemsList(
+        product: product,
+        containerWidth: Dimentions.width180,
+        marginRight: 1,
+        fontSize: Dimentions.font18,
+      ),
+    )
+        .toList();
   }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: wcolor,
       appBar: AppBar(
@@ -63,7 +99,7 @@ class _ProductPageState extends State<ProductPage> {
             ],
           ),
         ),
-        backgroundColor: const Color(0xFF377A46),
+        backgroundColor: mainColor,
         leading: IconButton(
                 onPressed: () {
                   Navigator.push(context,
@@ -77,7 +113,7 @@ class _ProductPageState extends State<ProductPage> {
               onPressed: (){
                 showSearch(
                     context: context,
-                    delegate: CustomSearch());
+                    delegate: CustomSearch(productViewModel: _productViewModel));
               },
               icon: Icon(Icons.search_rounded, size: Dimentions.height30, color: wcolor,))
         ],
@@ -90,6 +126,7 @@ class _ProductPageState extends State<ProductPage> {
       ),
     );
   }
+
   Widget buildTapBar() => Container(
     color: Colors.transparent,
     margin: EdgeInsets.symmetric(horizontal: Dimentions.width10, vertical: Dimentions.height10/2),
@@ -129,7 +166,7 @@ class _ProductPageState extends State<ProductPage> {
                       boxShadow:[
                         current == index
                             ? BoxShadow(
-                          color: Color(0xFFb3d89c).withOpacity(0.5),
+                          color: const Color(0xFFb3d89c).withOpacity(0.5),
                           blurRadius: 4,
                           offset: const Offset(0, 6),
                           spreadRadius: 0,
@@ -165,7 +202,8 @@ class _ProductPageState extends State<ProductPage> {
       child: Column(
         children: _pages[current],
       ),
-    ) : GridView.builder(
+    ) :
+    GridView.builder(
         itemCount: _pages[current].length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -179,4 +217,5 @@ class _ProductPageState extends State<ProductPage> {
         }
     ),
   );
+
 }

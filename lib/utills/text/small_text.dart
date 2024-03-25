@@ -27,6 +27,7 @@ class SmallText extends StatelessWidget {
           fontFamily: 'Roboto',
           color: color,
           height: height,
+          fontWeight: FontWeight.w300,
           fontSize: size == 0?Dimentions.font13:size,
         )
     );

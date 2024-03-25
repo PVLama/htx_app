@@ -6,7 +6,7 @@ import 'package:htx_mh/viewmodels/constants/constant.dart';
 
 import '../../models/tour_model.dart';
 
-  Future<List<Tour>> getTour() async {
+  Future<List<TourModel>> getTour() async {
     var url = Uri.parse('${Url}tour'); // Địa chỉ API của tour
 
     var response = await http.get(
@@ -19,7 +19,7 @@ import '../../models/tour_model.dart';
       List<dynamic> data = json.decode(response.body);
 
       // Chuyển đổi dữ liệu JSON thành danh sách các tour
-      List<Tour> tours = data.map((item) => Tour.fromJson(item)).toList();
+      List<TourModel> tours = data.map((item) => TourModel.fromJson(item)).toList();
 
       return tours;
     } else {

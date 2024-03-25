@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:htx_mh/models/product_model.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
 import 'package:htx_mh/views/pages/detail_product_page.dart';
 
-import '../../../data/products_data.dart';
 import '../../../resources/app_assets.dart';
 import '../../../resources/colors.dart';
 import '../../../utills/text/middle_text.dart';
 import '../../../utills/text/small_text.dart';
 
 class ProductItemsList extends StatelessWidget {
+  final ProductModel product;
   final double containerWidth;
   final double marginRight;
   final double fontSize;
   final int maxLines;
-  final String productName;
 
-  const ProductItemsList({Key? key,
-    required this.productName,
+   const ProductItemsList({Key? key,
+     required this.product,
     this.containerWidth = 0,
     this.marginRight = 0,
     this.fontSize = 0,
@@ -28,7 +28,7 @@ class ProductItemsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) =>  DetailPage(data: productName,)),);
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>  DetailProductPage(product: product, data: product.productName,)),);
       },
       child: Container(
         width: containerWidth == 0? Dimentions.width50*3:containerWidth,
@@ -62,7 +62,7 @@ class ProductItemsList extends StatelessWidget {
                     children: [
                       SizedBox(
                           width: Dimentions.width50*3,
-                          child: BigText(text: productName,size: fontSize == 0? Dimentions.font16:fontSize, color: bcolor, maxLines: maxLines == 0? 1: maxLines,)
+                          child: BigText(text: product.productName,size: fontSize == 0? Dimentions.font16:fontSize, color: bcolor, maxLines: maxLines == 0? 1: maxLines,)
                       ),
                       SizedBox(height: Dimentions.height10/2,),
                       Row(
@@ -79,7 +79,7 @@ class ProductItemsList extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: Dimentions.height10,),
-                      MiddleText(text: "650.000" + "₫", size: Dimentions.font18,)
+                      MiddleText(text: product.price, size: Dimentions.font18,)
                     ],
                   ),
                 ],

@@ -2,27 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
 
-import '../../../data/products_data.dart';
+import '../../../models/product_model.dart';
 import '../../../resources/colors.dart';
 import '../../../utills/text/big_text.dart';
 import '../../pages/product_page.dart';
-import '../item_list/product_items.dart';
+import '../item_widgets/product_items.dart';
 
-class ProductListHomePage extends StatefulWidget {
-  const ProductListHomePage({Key? key,}) : super(key: key);
+class ProductListHomePage extends StatelessWidget {
+  final List<ProductModel> products;
 
-  @override
-  State<ProductListHomePage> createState() => _HomeStayListState();
-}
-
-class _HomeStayListState extends State<ProductListHomePage> {
-
-  final List<Color> colors = [
-    Colors.yellowAccent,
-    Colors.green,
-    Colors.purpleAccent,
-    Colors.blueGrey,
-  ];
+  const ProductListHomePage({Key? key,
+    required this.products
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +39,7 @@ class _HomeStayListState extends State<ProductListHomePage> {
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: colors.length,
+                itemCount: products.length,
                 itemBuilder: (context, index){
                   EdgeInsets margin = EdgeInsets.zero;
                   if (index == 0) {
@@ -56,7 +47,7 @@ class _HomeStayListState extends State<ProductListHomePage> {
                   }
                   return Container(
                     margin: margin,
-                      child: ProductItemsList(productName: productData.nameProduct[index],)
+                      child: ProductItemsList(product: products[index],)
                   );
                 }),
           ),
@@ -87,5 +78,4 @@ class _HomeStayListState extends State<ProductListHomePage> {
       ),
     );
   }
-
 }

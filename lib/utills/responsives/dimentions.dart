@@ -55,9 +55,11 @@ class Dimentions{
   static double radius10 = screenHeight/84.3;
 
   //Fonts:
+  static double font9 = screenHeight/93.66;
   static double font10 = screenHeight/84.3;
   static double font12 = screenHeight/70.25;
   static double font13 = screenHeight/64.84;
+  static double font14 = screenHeight/60.214;
   static double font15 = screenHeight/56.2;
   static double font16 = screenHeight/52.687;
   static double font18 = screenHeight/46.83;

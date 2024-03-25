@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:htx_mh/models/hotel_model.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/small_text.dart';
 
 import '../../../resources/colors.dart';
-import '../item_list/homestay_items.dart';
+import '../item_widgets/homestay_items.dart';
 
-class HomeStayList extends StatefulWidget {
-  const HomeStayList({Key? key}) : super(key: key);
-
-  @override
-  State<HomeStayList> createState() => _HomeStayListState();
-}
-
-class _HomeStayListState extends State<HomeStayList> {
+class HomeStayList extends StatelessWidget {
+  final List<HotelModel> allHotels;
+  HomeStayList({Key? key, required this.allHotels}) : super(key: key);
 
   final List<Color> colors = [
     Colors.red,
@@ -20,6 +16,7 @@ class _HomeStayListState extends State<HomeStayList> {
     Colors.yellowAccent,
     Colors.green,
   ];
+
   final List<Color> img = [
     Colors.yellowAccent,
     Colors.green,
@@ -58,7 +55,7 @@ class _HomeStayListState extends State<HomeStayList> {
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: colors.length,
+                itemCount: allHotels.length,
                 itemBuilder: (context, index){
                   EdgeInsets margin = EdgeInsets.zero;
                   if (index == 0) {
@@ -66,7 +63,7 @@ class _HomeStayListState extends State<HomeStayList> {
                   }
                   return Container(
                     margin: margin,
-                      child: const HomeStayItems()
+                      child: HomeStayItems(hotelModel: allHotels[index],)
                   );
             }),
           )
@@ -74,5 +71,4 @@ class _HomeStayListState extends State<HomeStayList> {
       ),
     );
   }
-
 }

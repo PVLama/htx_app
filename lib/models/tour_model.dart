@@ -1,13 +1,13 @@
 import 'dart:ui';
 
-class Tour {
+class TourModel {
   final Color image;
   final String tourName;
   final String address;
   final String evaluation;
   final String comment;
 
-  Tour({
+  TourModel({
     required this.image,
     required this.tourName,
     required this.address,
@@ -15,8 +15,8 @@ class Tour {
     required this.comment,
   });
 
-  factory Tour.fromJson(Map<String, dynamic> json) {
-    return Tour(
+  factory TourModel.fromJson(Map<String, dynamic> json) {
+    return TourModel(
       tourName: json['tourName'],
       comment: json['comment'],
       evaluation: json['evaluation'],

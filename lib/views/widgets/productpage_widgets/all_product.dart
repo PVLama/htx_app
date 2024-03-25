@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../data/products_data.dart';
+import 'package:htx_mh/viewmodels/products_view_model.dart';
 import '../../../utills/responsives/dimentions.dart';
 import '../../../utills/text/big_text.dart';
-import '../../../utills/text/middle_text.dart';
-import '../item_list/product_items.dart';
+import '../item_widgets/product_items.dart';
 
 class AllProducts extends StatefulWidget {
   const AllProducts({Key? key,}) : super(key: key);
@@ -13,77 +12,91 @@ class AllProducts extends StatefulWidget {
 }
 
 class _AllProductState extends State<AllProducts> {
+  final ProductViewModel _productViewModel =  ProductViewModel();
 
-  final List<Widget> text = [
-    BigText(text: "Các sản phẩm tiêu biểu", size: Dimentions.font25),
-    MiddleText(text: "Đặc sản Mường Hoa", size: Dimentions.font20),
-    MiddleText(text: "Trang phục thổ cẩm", size: Dimentions.font20),
-    MiddleText(text: "Hoa quả bốn mùa", size: Dimentions.font20),
-    MiddleText(text: "Đồ uống", size: Dimentions.font20),
+  final List<String> categories = [
+    "Các sản phẩm tiêu biểu",
+    "Đặc sản Mường Hoa",
+    "Trang phục thổ cẩm",
+    "Hoa quả bốn mùa",
+    "Đồ uống",
   ];
 
   @override
   Widget build(BuildContext context) {
-    final List<String> productNames = productData.nameProduct;
-    final List<String> productHoaQua = productData.hoaQua;
-    final List<String> productDacSan = productData.dacSan;
-
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
-        children: [
-          buildAllProduct(
-            productNames.map((productAll) => ProductItemsList(productName: productAll)).toList(),
-            BigText(text: "Các sản phẩm tiêu biểu", size: Dimentions.font25),
-          ),
-          buildAllProduct(
-            productDacSan.map((productDacSan) => ProductItemsList(productName: productDacSan)).toList(),
-            MiddleText(text: "Đặc sản Mường Hoa", size: Dimentions.font20),
-          ),
-          buildAllProduct(
-            productNames.map((productName) => ProductItemsList(productName: productName)).toList(),
-            MiddleText(text: "Trang phục thổ cẩm", size: Dimentions.font20),
-          ),
-          buildAllProduct(
-            productHoaQua.map((productHoaQua) => ProductItemsList(productName: productHoaQua)).toList(),
-            MiddleText(text: "Hoa quả bốn mùa", size: Dimentions.font20),
-          ),
-          buildAllProduct(
-            productNames.map((productName) => ProductItemsList(productName: productName)).toList(),
-            MiddleText(text: "Đồ uống", size: Dimentions.font20),
-          ),
-        ],
+        children: categories
+            .map((category) => buildCategoryProduct(category))
+            .toList(),
       ),
     );
   }
 
-  Widget buildAllProduct(List<Widget> productWidgets, Widget textWidget) => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children:[
-      Padding(
-        padding: EdgeInsets.only(left: Dimentions.width15),
-        child: textWidget,
-      ),
-      SizedBox(
-        height: Dimentions.height50*5,
-        width: MediaQuery.of(context).size.width,
-        child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemCount: productData.nameProduct.length,
-            itemBuilder: (context, index){
-              EdgeInsets margin = EdgeInsets.zero;
-              if (index == 0) {
-                margin = EdgeInsets.only(left: Dimentions.width15);
-              }
-              return Container(
-                margin: margin,
-                  child: productWidgets[index]
-              );
-            }),
-      ),
-    ],
-  );
+  Widget buildCategoryProduct(String category) {
+    List<ProductItemsList> productsList;
+    switch (category) {
+      case "Các sản phẩm tiêu biểu":
+        productsList = _productViewModel.createProducts
+            .map((product) => ProductItemsList(product: product))
+            .toList();
+        break;
+      case "Đặc sản Mường Hoa":
+        productsList = _productViewModel.createProducts2
+            .map((product) => ProductItemsList(product: product))
+            .toList();
+        break;
+      case "Trang phục thổ cẩm":
+        productsList = _productViewModel.createProducts3
+            .map((product) => ProductItemsList(product: product))
+            .toList();
+        break;
+        case "Hoa quả bốn mùa":
+        productsList = _productViewModel.createProducts2
+            .map((product) => ProductItemsList(product: product))
+            .toList();
+        break;
+        case "Đồ uống":
+        productsList = _productViewModel.createProducts
+            .map((product) => ProductItemsList(product: product))
+            .toList();
+        break;
+      default:
+        productsList = [];
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: Dimentions.width15),
+          child: BigText(text: category, size: Dimentions.font25),
+        ),
+        SizedBox(
+          height: Dimentions.height50 * 5,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
+          child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: productsList.length,
+              itemBuilder: (context, index) {
+                final productItem  = productsList[index];
+                EdgeInsets margin = EdgeInsets.zero;
+                if (index == 0) {
+                  margin = EdgeInsets.only(left: Dimentions.width15);
+                }
+                return Container(
+                  margin: margin,
+                  child: productItem,
+                );
+              }),
+        ),
+      ],
+    );
+  }
 }
 

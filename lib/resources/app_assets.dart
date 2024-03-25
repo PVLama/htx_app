@@ -17,17 +17,20 @@ class AppAssets {
   static const String img4 = imagePath + 'anh4.jpg';
   static const String img5 = imagePath + 'anh5.jpg';
   static const String img6 = imagePath + 'anh6.jpg';
+  static const String imgCanuong = imagePath + 'ca_nuong.jpg';
+  static const String imgThittrau = imagePath + 'thittrau_gacbep.jpg';
+  static const String imgLau = imagePath + 'lau_catamcahoi.jpg';
+  static const String imgNews = imagePath + 'imgNews.png';
+  static const String imgNewsItem = imagePath + 'newsitem.png';
 
   //Icons
-  static const String icSeeMore = iconPath + 'angle_right.png';
   static const String icStars = iconPath + 'star.png';
-  static const String icHome = iconPath + 'home-heart.png';
   static const String icTourGuide = iconPath + 'file-invoice.png';
-  static const String icShoppingBag = iconPath + 'shopping-bag.png';
-  static const String icAccount = iconPath + 'user.png';
   static const String icHeartOutLine = iconPath + 'like.png';
-  static const String icHeart = iconPath + 'like1.png';
   static const String icInvoice = iconPath + 'file-invoice.png';
   static const String icMngInvoice = iconPath + 'invoice.png';
-  static const String icArrowBack = iconPath + 'arrow-left.png';
+  static const String icPlus = iconPath + 'plus.png';
+  static const String icMinus = iconPath + 'minus-sign.png';
+  static const String icCalender = iconPath + 'calendar.png';
+  static const String icTwoPeople = iconPath + 'two-people.png';
 }

@@ -5,39 +5,38 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/tour_model.dart';
-import 'constants/constant.dart';
 
 class TourSlideViewModel {
-  final List<Tour> tours = [
-    Tour(
+  final List<TourModel> tours = [
+    TourModel(
       image: Colors.red,
       tourName: "Tour 2 ngày 1 đêm",
       address: "Địa chỉ A",
       evaluation: "4.5",
       comment: "1450",
     ),
-    Tour(
+    TourModel(
       image: Colors.blue,
       tourName: "Tour A",
       address: "Địa chỉ B",
       evaluation: "4.0",
       comment: "1200",
     ),
-    Tour(
+    TourModel(
       image: Colors.yellowAccent,
       tourName: "Tour B",
       address: "Địa chỉ C",
       evaluation: "4.8",
       comment: "1800",
     ),
-    Tour(
+    TourModel(
       image: Colors.green,
       tourName: "Tour C",
       address: "Địa chỉ D",
       evaluation: "4.2",
       comment: "950",
     ),
-    Tour(
+    TourModel(
       image: Colors.purpleAccent,
       tourName: "Tour D",
       address: "Địa chỉ E",

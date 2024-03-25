@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
+import 'package:htx_mh/views/pages/news_page.dart';
 
 import '../../resources/colors.dart';
 import '../pages/account_page.dart';
@@ -51,8 +52,8 @@ class NavigationController extends GetxController{
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-     const HomePage(),
-    Container(color: Colors.orange,),
+    const HomePage(),
+    const NewsPage(),
     Container(color: Colors.brown,),
     const AccountPage()
   ];
