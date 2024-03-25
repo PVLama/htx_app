@@ -11,6 +11,7 @@ const Color bgrMainColor = Color(0xFFEFEFEF);
 //Icon Colors
 const Color iconsColors = Color(0xFF747264);
 const Color iconsStarColors = Color(0xFFffc600);
+const Color iconsfb = Color(0xFFffc600);
 
 //Text Colors
 const Color smallTextColors = Color(0xFF332d2b);

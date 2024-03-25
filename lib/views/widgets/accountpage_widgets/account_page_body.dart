@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:htx_mh/views/pages/page_login.dart';
+import 'package:htx_mh/views/pages/page_signup.dart';
 import '../../../resources/app_assets.dart';
 import '../../../resources/colors.dart';
 import '../../../utills/responsives/dimentions.dart';
@@ -54,7 +55,7 @@ class AccountPageBody extends StatelessWidget {
                 print('Phản hồi clicked!');
                 break;
                 case 5:
-                print('Đăng xuất clicked!');
+                  print('Phản hồi clicked!');
                 break;
               default:
                 break;

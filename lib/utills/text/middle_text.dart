@@ -9,6 +9,7 @@ class MiddleText extends StatelessWidget {
   int? maxLines;
   TextAlign textAlign;
   TextOverflow overflow;
+
   MiddleText({Key? key,
     required this.text,
     this.size = 0,
@@ -16,7 +17,8 @@ class MiddleText extends StatelessWidget {
     this.color = const Color(0xFF332d2b),
     this.overflow = TextOverflow.ellipsis,
     this.maxLines,
-    this.textAlign = TextAlign.left
+    this.textAlign = TextAlign.left,
+
   }) : super(key: key);
 
   @override

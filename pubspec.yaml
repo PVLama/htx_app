@@ -70,7 +70,7 @@ flutter:
   assets:
      - assets/icons/
      - assets/images/
-
+     - assets/images/htx.png
      - assets/fonts/
      - assets/fonts/roboto/
 
