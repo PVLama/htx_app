@@ -5,24 +5,58 @@ import 'package:htx_mh/utills/text/big_text.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
 import 'package:htx_mh/utills/text/small_text.dart';
 import 'package:htx_mh/viewmodels/hotels_view_model.dart';
+import 'package:htx_mh/views/pages/home_page.dart';
 import 'package:htx_mh/views/widgets/hotel_page_widgets/app_bar_hotel_page.dart';
+import 'package:htx_mh/views/widgets/navigations_menu.dart';
 
 import '../../resources/app_assets.dart';
 import '../../resources/colors.dart';
 import '../../utills/responsives/dimentions.dart';
 import '../widgets/item_widgets/homestay_items.dart';
 
-class HotelPage extends StatelessWidget {
+class HotelPage extends StatefulWidget {
   HotelPage({Key? key}) : super(key: key);
 
-  final HotelViewModel hotelViewModel = HotelViewModel();
+  @override
+  State<HotelPage> createState() => _HotelPageState();
+}
 
+class _HotelPageState extends State<HotelPage> {
+  final HotelViewModel hotelViewModel = HotelViewModel();
+  final ScrollController _scrollController = ScrollController();
+  bool _isScrolled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_scrollListener);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollListener() {
+    if (_scrollController.offset > kToolbarHeight + Dimentions.height40 * 5) {
+      setState(() {
+        _isScrolled = true;
+      });
+    } else {
+      setState(() {
+        _isScrolled = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgrMainColor,
       body: CustomScrollView(
+        controller: _scrollController,
         physics: const BouncingScrollPhysics(),
         slivers: <Widget>[
           buildAppBar(),
@@ -33,20 +67,26 @@ class HotelPage extends StatelessWidget {
   }
 
   Widget buildAppBar() => SliverAppBar(
-    systemOverlayStyle: const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
-    title:  BigText(text: "Trang chủ"),
-    centerTitle: true,
+    systemOverlayStyle: SystemUiOverlayStyle(
+      statusBarBrightness: _isScrolled ? Brightness.dark : Brightness.light,
+    ),
+    title:  BigText(text: "Trang chủ", color: _isScrolled ? bcolor : wcolor,),
+    leading: IconButton(
+      onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const NavigationMenu()),);
+      }, 
+      icon: Icon(Icons.arrow_back,size: Dimentions.height25, color: _isScrolled ? bcolor : wcolor, ),),
     automaticallyImplyLeading: false,
     elevation: 0,
-    pinned: true,
-    floating: false,
+    floating: true,
     stretch: true,
+    pinned: true,
     backgroundColor: wcolor,
     expandedHeight: Dimentions.height50*8,
     toolbarHeight: Dimentions.height50,
     flexibleSpace: LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final bool isTitleVisible = constraints.maxHeight > kToolbarHeight + Dimentions.height40*4;
+        final bool isTitleVisible = constraints.maxHeight > kToolbarHeight + Dimentions.height40*5;
         return PreferredSize(
           preferredSize: Size.fromWidth(Dimentions.width50*3),
           child: FlexibleSpaceBar(
@@ -81,7 +121,7 @@ class HotelPage extends StatelessWidget {
     padding: EdgeInsets.only(left: Dimentions.width15, right: Dimentions.width15, bottom: Dimentions.height15),
     sliver: SliverGrid(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisSpacing: 15,
+          crossAxisSpacing: 12,
           mainAxisSpacing: 15,
           crossAxisCount: 2,
           childAspectRatio: 0.70

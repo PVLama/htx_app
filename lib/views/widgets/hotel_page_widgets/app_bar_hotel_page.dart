@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:htx_mh/views/widgets/custom_widgets/bottom_sheet_widget.dart';
 import 'package:htx_mh/views/widgets/custom_widgets/button_widget.dart';
-import 'package:htx_mh/views/widgets/hotel_page_widgets/bottom_sheet_hotel_page.dart';
+import 'package:htx_mh/views/widgets/hotel_page_widgets/bottom_sheet_room_guest.dart';
+import 'package:provider/provider.dart';
 
 import '../../../resources/app_assets.dart';
 import '../../../resources/colors.dart';
@@ -11,26 +11,20 @@ import '../../../utills/responsives/dimentions.dart';
 import '../../../utills/text/big_text.dart';
 import '../../../utills/text/middle_text.dart';
 import '../../../utills/text/small_text.dart';
+import '../../../viewmodels/controllers/counter_controller.dart';
 
 class AppBarHotelPage extends StatefulWidget {
 
-  final PeopleContainerCallback? onPeopleContainerPressed;
-  const AppBarHotelPage({Key? key, this.onPeopleContainerPressed}) : super(key: key);
+  const AppBarHotelPage({Key? key,
+  }) : super(key: key);
 
   @override
   State<AppBarHotelPage> createState() => _AppBarHotelPageState();
 }
 
 class _AppBarHotelPageState extends State<AppBarHotelPage> {
-  late int selectedRoom;
-  late int selectedGuest;
 
-  @override
-  void initState() {
-    super.initState();
-    selectedRoom = 0; // Giá trị mặc định
-    selectedGuest = 0; // Giá trị mặc định
-  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -53,33 +47,6 @@ class _AppBarHotelPageState extends State<AppBarHotelPage> {
       ),
     );
   }
-
-  Future _displayBottomSheet(BuildContext context, int room, int guest){
-    return showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context){
-          return BottomSheetWidget(
-              child: BottomSheetHotelPage(
-                onChoose: (room, guest) {
-                  setState(() {
-                    selectedRoom = room;
-                    selectedGuest = guest;
-                  });
-                },
-                onCounterChange: (room, guest) {
-                  setState(() {
-                    selectedRoom = room;
-                    selectedGuest = guest;
-                  });
-                },
-                    initialRoom: room,
-                    initialGuest: guest,
-              ),
-          );
-        }
-    );
-  }
-
   Widget buildSearchBar() {
     return TextFormField(
       style: TextStyle(fontSize: Dimentions.font13),
@@ -116,11 +83,20 @@ class _AppBarHotelPageState extends State<AppBarHotelPage> {
     );
   }
 
+  Future _displayBottomSheet(BuildContext context,){
+    return showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context){
+          return BottomSheetHotelPage();
+        }
+    );
+  }
+
   Widget buildPeopleAndRoomContainer(BuildContext context,) {
+
     return InkWell(
       onTap: () {
-        widget.onPeopleContainerPressed?.call(selectedRoom, selectedGuest);
-        _displayBottomSheet(context, selectedRoom, selectedGuest);
+        _displayBottomSheet(context);
       },
       child: Container(
         width: double.infinity,
@@ -144,9 +120,9 @@ class _AppBarHotelPageState extends State<AppBarHotelPage> {
                       Padding(
                           padding: EdgeInsets.only(left: Dimentions.width10),
                           child: RichText(text: TextSpan(children: [
-                            WidgetSpan(child: BigText(text: selectedRoom.toString(), size: Dimentions.font12,)),
+                            WidgetSpan(child: BigText(text:"1", size: Dimentions.font12,)),
                             WidgetSpan(child: SmallText(text: " phòng - ", size: Dimentions.font12, color: bcolor,)),
-                            WidgetSpan(child: BigText(text: selectedGuest.toString(), size: Dimentions.font12,)),
+                            WidgetSpan(child: BigText(text:"1", size: Dimentions.font12,)),
                             WidgetSpan(child: SmallText(text: " người ", size: Dimentions.font12,color: bcolor)),
                           ]))
                       ),
@@ -238,7 +214,6 @@ class _AppBarHotelPageState extends State<AppBarHotelPage> {
       width: Dimentions.width55*3.5,
       borderRadius: Dimentions.radius10/2,
       marginTop: Dimentions.height10,
-      onPressed: () {  },
+      onPressed: () { },
   );
 }
-typedef PeopleContainerCallback = void Function(int room, int guest);

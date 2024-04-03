@@ -1,12 +1,19 @@
+
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:htx_mh/data/db_helper.dart';
 import 'package:htx_mh/data/products_data.dart';
+import 'package:htx_mh/models/cart_model.dart';
 import 'package:htx_mh/models/product_model.dart';
 import 'package:htx_mh/resources/colors.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
+import 'package:htx_mh/utills/text/small_text.dart';
+import 'package:htx_mh/viewmodels/provider/cart_provider.dart';
 import 'package:htx_mh/views/widgets/custom_widgets/expandable_text_widget.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widgets/item_widgets/product_items.dart';
@@ -26,39 +33,46 @@ class DetailProductPage extends StatefulWidget {
 }
 
 class _DetailProductPageState extends State<DetailProductPage> {
+  final ScrollController _controller = ScrollController();
+  bool _isScrolled = false;
+  DBHelper? dbHelper = DBHelper();
 
-  int _counter = 0;
-  ProductData imagesData = ProductData();
+  ProductData data = ProductData();
   int activeIndex = 0;
 
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(_onScroll);
+  }
 
+  @override
+  void dispose() {
+    _controller.removeListener(_onScroll);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    final offset = _controller.offset;
+    if (offset > kToolbarHeight + Dimentions.height40*3) {
+      setState(() {
+        _isScrolled = true;
+      });
+    } else {
+      setState(() {
+        _isScrolled = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-
+    final cart = Provider.of<CartProvider>(context, listen: false);
     return Scaffold(
-       appBar: AppBar(
-        toolbarHeight: Dimentions.height40*2,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back, color: wcolor, size: Dimentions.height30,) ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: Dimentions.width10),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.shopping_cart_outlined, color: wcolor, size: Dimentions.height25,),
-            ),
-          ),
-        ],
-        centerTitle: true,
-        backgroundColor: mainColor,
-        title: BigText(text: "Chi tiết sản phẩm", size: Dimentions.font25 ,color: wcolor,),
-      ),
       bottomNavigationBar: buildBottomBar(),
       body: CustomScrollView(
+        controller: _controller,
         slivers: [
           buildSlidePic(),
           buildBody(),
@@ -67,26 +81,54 @@ class _DetailProductPageState extends State<DetailProductPage> {
     );
   }
 
-  Widget buildSlidePic() => SliverToBoxAdapter(
-    child: Column(
-      children: [
-        CarouselSlider.builder(
-          options: CarouselOptions(
-            height: Dimentions.height45*4,
-            viewportFraction: 1,
-            autoPlay: true,
-            autoPlayInterval: const Duration(seconds: 3),
-            onPageChanged: (index, reason) => setState(() => activeIndex = index),
-          ),
-          itemCount: imagesData.images.length,
-          itemBuilder: (BuildContext context, int index, int realIndex) {
-            final image = imagesData.imageDetail[index];
-            return buildImage(image, index);
+  Widget buildSlidePic() => SliverAppBar(
+    centerTitle: true,
+    leading: IconButton(
+        onPressed: () {
+            Navigator.pop(context);
           },
+          icon: Icon(Icons.arrow_back, color: _isScrolled ? bcolor : wcolor, size: Dimentions.height30,)),
+    actions: [
+        Padding(
+          padding: EdgeInsets.only(right: Dimentions.width10),
+          child: IconButton(
+            onPressed: () {},
+            icon: Center(
+                child: Badge(
+                  label: Consumer<CartProvider>(
+                    builder: (context, value, child){
+                      return SmallText(text: value.getCounter().toString(), color: wcolor,);
+                    },
+                  ),
+                    child: Icon(Icons.shopping_cart_outlined, color: _isScrolled ? bcolor : wcolor, size: Dimentions.height25,))),
+          ),
         ),
-        SizedBox(height: Dimentions.height10,),
-        buildIndicator(),
       ],
+    pinned: true,
+    expandedHeight: Dimentions.height50*5,
+    toolbarHeight: Dimentions.height50,
+    title: BigText(text: "Chi tiết sản phẩm", size: Dimentions.font25 ,color: _isScrolled ? bcolor : wcolor,),
+    flexibleSpace: FlexibleSpaceBar(
+      background: Column(
+        children: [
+          CarouselSlider.builder(
+            options: CarouselOptions(
+              height: Dimentions.height50*5,
+              viewportFraction: 1,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 3),
+              onPageChanged: (index, reason) => setState(() => activeIndex = index),
+            ),
+            itemCount: data.imageDetail.length,
+            itemBuilder: (BuildContext context, int index, int realIndex) {
+              final image = data.imageDetail[index];
+              return buildImage(image, index);
+            },
+          ),
+          SizedBox(height: Dimentions.height10,),
+          buildIndicator(),
+        ],
+      ),
     ),
   );
 
@@ -104,9 +146,9 @@ class _DetailProductPageState extends State<DetailProductPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BigText(text: widget.product.productName, size: Dimentions.font25,),
-              MiddleText(text: widget.product.price, size: Dimentions.font20, color: redColor,),
-              MiddleText(text: "Nhãn hiệu: ${widget.product.brand}", size: Dimentions.font20,),
+              BigText(text: widget.product.productName, size: Dimentions.font20,),
+              MiddleText(text: widget.product.price.toString() + ' ₫', size: Dimentions.font18, color: redColor,),
+              MiddleText(text: "Nhãn hiệu: ${widget.product.brand}", size: Dimentions.font18,),
             ],
           ),
         ),
@@ -133,7 +175,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
         ),
         Container(
           margin: EdgeInsets.only(top: Dimentions.height20, bottom: Dimentions.height10),
-          color: Color(0xFFbcb8b1),
+          color: Color(0xFFEEEEEE),
           height: Dimentions.height30*2,
           width: double.infinity,
           child: Row(
@@ -141,11 +183,11 @@ class _DetailProductPageState extends State<DetailProductPage> {
             children: [
               Container(
                 margin: EdgeInsets.symmetric(horizontal: Dimentions.width15),
-                height: Dimentions.height15/5, width: Dimentions.width35*2, color: Color(0xFF8a817c),),
+                height: Dimentions.height10/5, width: Dimentions.width35*2, color: Color(0xFF8a817c),),
               MiddleText(text: "Sản phẩm liên quan", size: Dimentions.font20,),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: Dimentions.width15),
-                height: Dimentions.height15/5, width: Dimentions.width35*2, color: Color(0xFF8a817c),),
+                height: Dimentions.height10/5, width: Dimentions.width35*2, color: Color(0xFF8a817c),),
             ],
           ),
         ),
@@ -176,8 +218,8 @@ class _DetailProductPageState extends State<DetailProductPage> {
     activeIndex: activeIndex,
     count: 5,
     effect: WormEffect(
-      activeDotColor: Colors.black,
-      dotColor: Colors.grey,
+      activeDotColor: bcolor,
+      dotColor: greyColor,
       dotHeight: Dimentions.height10,
       dotWidth: Dimentions.width10,
     ),
@@ -185,7 +227,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
 
   Widget buildImage(Image image, int index) => SizedBox(
     width: double.infinity,
-    child: imagesData.imageDetail[index],
+    child: data.imageDetail[index],
   );
 
   Widget buildBottomBar() => Container(
@@ -207,25 +249,53 @@ class _DetailProductPageState extends State<DetailProductPage> {
           child: Row(
             children: [
               IconButton(
-                  onPressed: (){
-                    if (_counter > 0) {
-                      _counter--;
-                    }
-                  },
+                  onPressed: (){},
                   icon: Icon(Icons.remove, size: Dimentions.height25,)
               ),
-              MiddleText(text: _counter.toString(), size: Dimentions.font20,),
+              MiddleText(text:"0", size: Dimentions.font20,),
               IconButton(
-                  onPressed: (){
-                    _counter++;
-                  },
+                  onPressed: (){},
                   icon: Icon(Icons.add, size: Dimentions.height25,),
               )
             ],
           ),
         ),
         InkWell(
-          onTap: (){},
+          onTap: (){
+            int index = 0;
+            List<ProductModel> allProducts = [];
+
+            for (int i = 1; i <= 3; i++) {
+              allProducts.addAll(ProductData.getProducts(i));
+            }
+            if(allProducts.isNotEmpty){
+              ProductModel product = allProducts[index];
+              print("Số lượng sản phẩm: ${allProducts.length}");
+              dbHelper!.insert(
+                  CartModel(
+                      id: index,
+                      productId: index.toString(),
+                      productName: product.productName.toString(),
+                      initialPrice: product.price,
+                      productPrice: product.price,
+                      quantity: 1,
+                      unitTag: product.productName.toString(),
+                      image: product.productName.toString()
+                  )
+              ).then((value){
+                print("Product is added");
+                final cart = Provider.of<CartProvider>(context);
+                cart.addTotalPrice(double.parse(product.price.toString()));
+                cart.addCounter();
+              }).onError((error, stackTrace) {
+                print(error.toString());
+              });
+            }else{
+              print("Danh sách trống");
+              print(index);
+            }
+           
+          },
           child: Container(
             margin: EdgeInsets.only(right: Dimentions.width15),
             width: Dimentions.width45*3,
@@ -239,7 +309,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
                 Container(
                   width: double.infinity,
                   height: Dimentions.height35,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
                         color: wcolor,

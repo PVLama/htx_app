@@ -26,6 +26,7 @@ class ProductItemsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return InkWell(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context) =>  DetailProductPage(product: product, data: product.productName,)),);
@@ -79,7 +80,7 @@ class ProductItemsList extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: Dimentions.height10,),
-                      MiddleText(text: product.price, size: Dimentions.font18,)
+                      MiddleText(text: '${product.price}₫', size: Dimentions.font18,)
                     ],
                   ),
                 ],

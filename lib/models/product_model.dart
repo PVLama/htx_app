@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ProductModel {
   final Color image;
   final String productName;
-  final String price;
+  final int price;
   final String brand;
   final String introduce;
 

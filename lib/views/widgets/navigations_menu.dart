@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
+import 'package:htx_mh/views/pages/cart_page.dart';
 import 'package:htx_mh/views/pages/news_page.dart';
 
 import '../../resources/colors.dart';
@@ -54,7 +55,7 @@ class NavigationController extends GetxController{
   final screens = [
     const HomePage(),
     const NewsPage(),
-    Container(color: Colors.brown,),
+    const CartPage(),
     const AccountPage()
   ];
 }

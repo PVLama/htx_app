@@ -17,6 +17,10 @@ class AppAssets {
   static const String img4 = imagePath + 'anh4.jpg';
   static const String img5 = imagePath + 'anh5.jpg';
   static const String img6 = imagePath + 'anh6.jpg';
+  static const String imgNews = imagePath + 'imgNews.png';
+  static const String imgCanuong = imagePath + 'ca_nuong.jpg';
+  static const String imgThittrau = imagePath + 'thittrau_gacbep.jpg';
+  static const String imgLau = imagePath + 'lau_catamcahoi.jpg';
 
   //Icons
   static const String icSeeMore = iconPath + 'angle_right.png';
@@ -30,4 +34,7 @@ class AppAssets {
   static const String icInvoice = iconPath + 'file-invoice.png';
   static const String icMngInvoice = iconPath + 'invoice.png';
   static const String icArrowBack = iconPath + 'arrow-left.png';
+  static const String icGoogle = iconPath + 'ggoog.jpeg';
+  static const String icTwoPeople = iconPath + 'two-people.png';
+  static const String icCalender = iconPath + 'calendar.png';
 }

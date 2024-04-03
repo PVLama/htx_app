@@ -1,30 +1,32 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
-class CounterController {
-  int _counter = 0;
-  VoidCallback? _updateStateCallback;
+class DataModel extends ChangeNotifier {
+  int roomCount = 1;
+  int personCount = 1;
 
-  CounterController(int initialValue);
-
-  void incrementCounter() {
-    _counter++;
-    _notifyListeners();
+  // Cập nhật số lượng phòng
+  void incrementRoom() {
+    roomCount++;
+    notifyListeners();
   }
 
-  void decrementCounter() {
-    if (_counter > 0) {
-      _counter--;
-      _notifyListeners();
+  void decrementRoom() {
+    if (roomCount > 1) {
+      roomCount--;
+      notifyListeners();
     }
   }
 
-  void setUpdateStateCallback(VoidCallback callback) {
-    _updateStateCallback = callback;
+  // Cập nhật số lượng người
+  void incrementPerson() {
+    personCount++;
+    notifyListeners();
   }
 
-  void _notifyListeners() {
-    _updateStateCallback?.call();
+  void decrementPerson() {
+    if (personCount > 1) {
+      personCount--;
+      notifyListeners();
+    }
   }
-
-  int get counter => _counter;
 }

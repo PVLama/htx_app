@@ -14,7 +14,7 @@ class AllProducts extends StatefulWidget {
 class _AllProductState extends State<AllProducts> {
   final ProductViewModel _productViewModel =  ProductViewModel();
 
-  final List<String> categories = [
+  final List<String> textCategories = [
     "Các sản phẩm tiêu biểu",
     "Đặc sản Mường Hoa",
     "Trang phục thổ cẩm",
@@ -27,8 +27,8 @@ class _AllProductState extends State<AllProducts> {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
-        children: categories
-            .map((category) => buildCategoryProduct(category))
+        children: textCategories
+            .map((textCategories) => buildCategoryProduct(textCategories))
             .toList(),
       ),
     );
@@ -70,7 +70,7 @@ class _AllProductState extends State<AllProducts> {
       children: [
         Padding(
           padding: EdgeInsets.only(left: Dimentions.width15),
-          child: BigText(text: category, size: Dimentions.font25),
+          child: BigText(text: category, size: Dimentions.font10*2.2),
         ),
         SizedBox(
           height: Dimentions.height50 * 5,
