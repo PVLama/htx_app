@@ -120,7 +120,7 @@ class BookGuideList extends StatelessWidget {
           height: Dimentions.height40,
           child: ElevatedButton(onPressed: () {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(wcolor),
+              backgroundColor: MaterialStateProperty.all<Color>(wColor),
               elevation: MaterialStateProperty.all<double>(Dimentions.height10/2),
               shape: MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(

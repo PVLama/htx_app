@@ -73,7 +73,7 @@ class _TourSlideState extends State<TourSlide> {
                   color: Color(0xFFC7C8CC),
                 ),
                 BoxShadow(
-                  color: wcolor,
+                  color: wColor,
                   blurRadius: 3,
                   spreadRadius: -0.1,
                 )

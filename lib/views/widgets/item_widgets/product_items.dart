@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:htx_mh/data/products_data.dart';
 import 'package:htx_mh/models/product_model.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/big_text.dart';
@@ -29,7 +30,7 @@ class ProductItemsList extends StatelessWidget {
 
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) =>  DetailProductPage(product: product, data: product.productName,)),);
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>  DetailProductPage(product: product, data: product.name,)),);
       },
       child: Container(
         width: containerWidth == 0? Dimentions.width50*3:containerWidth,
@@ -42,11 +43,11 @@ class ProductItemsList extends StatelessWidget {
               ClipRRect(
                 borderRadius:  BorderRadius.all(Radius.circular(Dimentions.radius10/2)),
                 child: Container(
-                  height: Dimentions.height135,
+                  height: Dimentions.height40*3,
                   width: MediaQuery.of(context).size.width,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(AppAssets.imgHomeStay,),
+                      image: product.image.image,
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -63,7 +64,7 @@ class ProductItemsList extends StatelessWidget {
                     children: [
                       SizedBox(
                           width: Dimentions.width50*3,
-                          child: BigText(text: product.productName,size: fontSize == 0? Dimentions.font16:fontSize, color: bcolor, maxLines: maxLines == 0? 1: maxLines,)
+                          child: BigText(text: product.name,size: fontSize == 0? Dimentions.font16:fontSize, color: bColor, maxLines: maxLines == 0? 1: maxLines,)
                       ),
                       SizedBox(height: Dimentions.height10/2,),
                       Row(
@@ -76,7 +77,7 @@ class ProductItemsList extends StatelessWidget {
                               ),
                               ),
                           ),
-                          SmallText(text: "(1234)", color: bcolor,)
+                          SmallText(text: "(1234)", color: bColor,)
                         ],
                       ),
                       SizedBox(height: Dimentions.height10,),

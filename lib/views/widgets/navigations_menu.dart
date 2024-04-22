@@ -26,19 +26,19 @@ class NavigationMenu extends StatelessWidget {
                 selectedIndex: controller.selectedIndex.value,
                 onDestinationSelected: (index) => controller.selectedIndex.value = index,
                 destinations: [
-                  NavigationDestination(icon: Icon(Icons.home_outlined, size: Dimentions.height25,), label: 'Trang chủ', selectedIcon: Icon(Icons.home,color: wcolor, size: Dimentions.height25,)),
-                  NavigationDestination(icon: Icon(Icons.newspaper_outlined, size: Dimentions.height25,), label: 'Tin tức',selectedIcon: Icon(Icons.newspaper, size: Dimentions.height25, color: wcolor,)),
+                  NavigationDestination(icon: Icon(Icons.home_outlined, size: Dimentions.height25,), label: 'Trang chủ', selectedIcon: Icon(Icons.home,color: wColor, size: Dimentions.height25,)),
+                  NavigationDestination(icon: Icon(Icons.newspaper_outlined, size: Dimentions.height25,), label: 'Tin tức',selectedIcon: Icon(Icons.newspaper, size: Dimentions.height25, color: wColor,)),
                   NavigationDestination(
                     icon: Badge(
-                      smallSize: 10,
+                      smallSize: Dimentions.height10,
                         backgroundColor: redColor,
                         label: Text("+5", style: TextStyle(fontSize: Dimentions.font10),),
                         child: Icon(Icons.shopping_bag_outlined, size: Dimentions.height25)
                     ),
                     label: 'Giỏ hàng',
-                    selectedIcon: Icon(Icons.shopping_bag,color: wcolor,size: Dimentions.height25)
+                    selectedIcon: Icon(Icons.shopping_bag,color: wColor,size: Dimentions.height25)
               ),
-                  NavigationDestination(icon: Icon(Icons.person_outline_outlined, size: Dimentions.height25), label: 'Tài khoản',selectedIcon: Icon(Icons.person,color: wcolor,size: Dimentions.height25
+                  NavigationDestination(icon: Icon(Icons.person_outline_outlined, size: Dimentions.height25), label: 'Tài khoản',selectedIcon: Icon(Icons.person,color: wColor,size: Dimentions.height25
               )),
             ],
           ),
@@ -55,7 +55,7 @@ class NavigationController extends GetxController{
   final screens = [
     const HomePage(),
     const NewsPage(),
-    const CartPage(),
+    Container(),
     const AccountPage()
   ];
 }

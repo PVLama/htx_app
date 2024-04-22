@@ -33,7 +33,7 @@ class _AppBarHotelPageState extends State<AppBarHotelPage> {
       width: Dimentions.width50*5,
       height: Dimentions.height30*6,
       decoration: BoxDecoration(
-          color: wcolor,
+          color: wColor,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(Dimentions.radius10), topRight: Radius.circular(Dimentions.radius10))
       ),
       child:
@@ -121,9 +121,9 @@ class _AppBarHotelPageState extends State<AppBarHotelPage> {
                           padding: EdgeInsets.only(left: Dimentions.width10),
                           child: RichText(text: TextSpan(children: [
                             WidgetSpan(child: BigText(text:"1", size: Dimentions.font12,)),
-                            WidgetSpan(child: SmallText(text: " phòng - ", size: Dimentions.font12, color: bcolor,)),
+                            WidgetSpan(child: SmallText(text: " phòng - ", size: Dimentions.font12, color: bColor,)),
                             WidgetSpan(child: BigText(text:"1", size: Dimentions.font12,)),
-                            WidgetSpan(child: SmallText(text: " người ", size: Dimentions.font12,color: bcolor)),
+                            WidgetSpan(child: SmallText(text: " người ", size: Dimentions.font12,color: bColor)),
                           ]))
                       ),
                     ],
@@ -176,8 +176,8 @@ class _AppBarHotelPageState extends State<AppBarHotelPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        BigText(text: "Thg" + " " + "3", size: Dimentions.font9, color: bcolor,),
-                        SmallText(text: "Thứ năm", size: Dimentions.font9, color: bcolor,)
+                        BigText(text: "Thg" + " " + "3", size: Dimentions.font9, color: bColor,),
+                        SmallText(text: "Thứ năm", size: Dimentions.font9, color: bColor,)
                       ],
                     )
                   ],
@@ -194,8 +194,8 @@ class _AppBarHotelPageState extends State<AppBarHotelPage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        BigText(text: "Thg" + " " + "4", size: Dimentions.font9, color: bcolor,),
-                        SmallText(text: "Thứ năm", size: Dimentions.font9, color: bcolor,)
+                        BigText(text: "Thg" + " " + "4", size: Dimentions.font9, color: bColor,),
+                        SmallText(text: "Thứ năm", size: Dimentions.font9, color: bColor,)
                       ],
                     )
                   ],
@@ -208,7 +208,7 @@ class _AppBarHotelPageState extends State<AppBarHotelPage> {
   }
 
   Widget buildSearchButton() => ButtonWidget(
-      text: BigText(text: "Tìm kiếm", color: wcolor,size: Dimentions.font12,),
+      text: BigText(text: "Tìm kiếm", color: wColor,size: Dimentions.font12,),
       color: mainColor,
       height: Dimentions.height30,
       width: Dimentions.width55*3.5,

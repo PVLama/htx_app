@@ -20,6 +20,7 @@ class _AllProductState extends State<AllProducts> {
     "Trang phục thổ cẩm",
     "Hoa quả bốn mùa",
     "Đồ uống",
+    "Đồ thủ công",
   ];
 
   @override
@@ -38,27 +39,32 @@ class _AllProductState extends State<AllProducts> {
     List<ProductItemsList> productsList;
     switch (category) {
       case "Các sản phẩm tiêu biểu":
-        productsList = _productViewModel.createProducts
+        productsList = _productViewModel.getAllProducts()
             .map((product) => ProductItemsList(product: product))
             .toList();
         break;
       case "Đặc sản Mường Hoa":
-        productsList = _productViewModel.createProducts2
+        productsList = _productViewModel.createDacSan
             .map((product) => ProductItemsList(product: product))
             .toList();
         break;
       case "Trang phục thổ cẩm":
-        productsList = _productViewModel.createProducts3
+        productsList = _productViewModel.createThoCam
             .map((product) => ProductItemsList(product: product))
             .toList();
         break;
         case "Hoa quả bốn mùa":
-        productsList = _productViewModel.createProducts2
+        productsList = _productViewModel.createHoaQua
             .map((product) => ProductItemsList(product: product))
             .toList();
         break;
         case "Đồ uống":
-        productsList = _productViewModel.createProducts
+        productsList = _productViewModel.createDoUong
+            .map((product) => ProductItemsList(product: product))
+            .toList();
+        break;
+        case "Đồ thủ công":
+        productsList = _productViewModel.createDoThuCong
             .map((product) => ProductItemsList(product: product))
             .toList();
         break;

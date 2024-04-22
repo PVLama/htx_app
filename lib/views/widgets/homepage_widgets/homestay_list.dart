@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:htx_mh/models/hotel_model.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/small_text.dart';
+import 'package:htx_mh/views/pages/hotel_page.dart';
 
 import '../../../resources/colors.dart';
 import '../item_widgets/homestay_items.dart';
@@ -36,12 +37,12 @@ class HomeStayList extends StatelessWidget {
               width: Dimentions.width50*2,
               child: InkWell(
                 onTap: (){
-                  print("texxt...");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => HotelPage()));
                 },
                 child: Row(
                   children: [
-                    SmallText(text: "Xem thêm", size: Dimentions.font15 ,color: wcolor,),
-                    Icon(Icons.chevron_right, color: wcolor,)
+                    SmallText(text: "Xem thêm", size: Dimentions.font15 ,color: wColor,),
+                    Icon(Icons.chevron_right, color: wColor, size: Dimentions.height20,)
                   ],
                 ),
               ),

@@ -31,7 +31,7 @@ class _NewsPageState extends State<NewsPage> {
           padding: EdgeInsets.only(top: Dimentions.height10),
           child: Column(
             children: [
-              BigText(text: "Tin tức và Sự kiện", color: wcolor,size: Dimentions.font25,),
+              BigText(text: "Tin tức và Sự kiện", color: wColor,size: Dimentions.font25,),
             ],
           ),
         ),
@@ -43,7 +43,7 @@ class _NewsPageState extends State<NewsPage> {
                     context: context,
                     delegate: CustomSearch(productViewModel: ProductViewModel()));
               },
-              icon: Icon(Icons.search_rounded, size: Dimentions.height30, color: wcolor,))
+              icon: Icon(Icons.search_rounded, size: Dimentions.height30, color: wColor,))
         ],
       ),
       body: CustomScrollView(
@@ -128,7 +128,7 @@ class _NewsPageState extends State<NewsPage> {
           margin: margin,
           height: Dimentions.height40*4,
           decoration: BoxDecoration(
-            color: wcolor,
+            color: wColor,
             borderRadius:BorderRadius.circular(Dimentions.height15),
           ),
           child: Column(

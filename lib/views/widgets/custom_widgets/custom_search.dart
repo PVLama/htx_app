@@ -12,7 +12,7 @@ class CustomSearch extends SearchDelegate{
   CustomSearch({required this.productViewModel});
   List<String> getAllProductNames() {
     List<ProductModel> allProducts = productViewModel.getAllProducts();
-    return allProducts.map((product) => product.productName).toList();
+    return allProducts.map((product) => product.name).toList();
   }
 
   @override
@@ -64,7 +64,7 @@ class CustomSearch extends SearchDelegate{
           final suggest = suggestions[index];
           List<ProductModel> allProducts = productViewModel.getAllProducts();
             ProductModel? selectedProduct = allProducts.firstWhereOrNull(
-            (product) => product.productName == suggest,
+            (product) => product.name == suggest,
           );
             if (selectedProduct != null) {
               return ListTile(

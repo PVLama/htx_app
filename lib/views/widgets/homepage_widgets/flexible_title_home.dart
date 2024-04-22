@@ -22,12 +22,6 @@ class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
 
   int _currentIndex = 0;
 
-  // final List<Widget> _screens = [
-  //   ProductPage(),
-  //   ProductPage(),
-  //   ProductPage()
-  // ];
-
   final List<Image> icons = [
     Image.asset(AppAssets.gifTour, height: Dimentions.height30, width: Dimentions.width30,),
     Image.asset(AppAssets.gifHouse, height: Dimentions.height30, width: Dimentions.width30,),
@@ -36,10 +30,10 @@ class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
   ];
 
   final List<Widget> texts = [
-    SmallText(text: "Tour",size: Dimentions.font10, color: bcolor,),
-    SmallText(text: "Home stay", size: Dimentions.font10, color: bcolor),
-    SmallText(text: "Sản Phẩm", size: Dimentions.font10, color: bcolor),
-    SmallText(text: "Cẩm nang", size: Dimentions.font10, color: bcolor),
+    SmallText(text: "Tour",size: Dimentions.font10, color: bColor,),
+    SmallText(text: "Home stay", size: Dimentions.font10, color: bColor),
+    SmallText(text: "Sản Phẩm", size: Dimentions.font10, color: bColor),
+    SmallText(text: "Cẩm nang", size: Dimentions.font10, color: bColor),
   ];
 
   @override
@@ -50,7 +44,7 @@ class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
       width: Dimentions.widthFlexibleTitle,
       height: Dimentions.height30*2,
       decoration: ShapeDecoration(
-        color: wcolor,
+        color: wColor,
         shape: RoundedRectangleBorder(
           side: const BorderSide(
             width: 0.30,
@@ -91,7 +85,8 @@ class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ProductPage()));
                   break;
                 case 3:
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const GuideTourPage()));
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const GuideTourPage()));
+                print("Trang guide");
                   break;
                 default:
                   break;
@@ -100,7 +95,7 @@ class _FlexibleTitleHomeState extends State<FlexibleTitleHome> {
             child: Column(
         children: [
               icons[index],
-              texts[index], // Sử dụng văn bản từ danh sách texts
+              texts[index],
         ],
       ),
           ),

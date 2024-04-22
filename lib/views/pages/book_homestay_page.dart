@@ -26,7 +26,7 @@ class _TourPageState extends State<BookHomeStayPage> {
     automaticallyImplyLeading: false,
     elevation: 0,
     pinned: false,
-    backgroundColor: wcolor,
+    backgroundColor: wColor,
     expandedHeight: Dimentions.expandedHeight,
     title: Container(
       height: 200,

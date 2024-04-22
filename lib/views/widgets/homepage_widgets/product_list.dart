@@ -62,7 +62,7 @@ class ProductListHomePage extends StatelessWidget {
                 );
               },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(wcolor),
+                    backgroundColor: MaterialStateProperty.all<Color>(wColor),
                     elevation: MaterialStateProperty.all<double>(Dimentions.height10/2),
                       shape: MaterialStateProperty.all<OutlinedBorder>(
                         RoundedRectangleBorder(

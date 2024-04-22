@@ -41,7 +41,7 @@ class _AccountPageState extends State<AccountPage> {
           margin: EdgeInsets.only(top: Dimentions.height30, left: Dimentions.width20, right: Dimentions.width20),
           padding: EdgeInsets.only(top: Dimentions.height10),
           decoration: BoxDecoration(
-              color: wcolor,
+              color: wColor,
               borderRadius: BorderRadius.circular(Dimentions.radius10)
           ),
           child: AccountPageBody(),
@@ -52,7 +52,7 @@ class _AccountPageState extends State<AccountPage> {
           height: Dimentions.height40*4,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-              color: wcolor,
+              color: wColor,
               borderRadius: BorderRadius.circular(Dimentions.radius10)
           ),
           child: Column(
@@ -73,7 +73,7 @@ class _AccountPageState extends State<AccountPage> {
                     borderRadius: BorderRadius.circular(Dimentions.radius10)
                   ),child: Align(
                           alignment: Alignment.center,
-                    child: MiddleText(text: "Đánh giá", color: wcolor, size: Dimentions.font18,)
+                    child: MiddleText(text: "Đánh giá", color: wColor, size: Dimentions.font18,)
                 ),
                 ),
               )

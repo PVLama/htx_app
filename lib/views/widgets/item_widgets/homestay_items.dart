@@ -1,7 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:htx_mh/models/hotel_model.dart';
 import 'package:htx_mh/utills/responsives/dimentions.dart';
 import 'package:htx_mh/utills/text/middle_text.dart';
+import 'package:htx_mh/views/pages/detail_hotel_page.dart';
+import 'package:provider/provider.dart';
 
 import '../../../resources/app_assets.dart';
 import '../../../resources/colors.dart';
@@ -9,21 +13,25 @@ import '../../../resources/colors.dart';
 class HomeStayItems extends StatelessWidget {
   final HotelModel hotelModel;
   final double marginRight;
+  final double widthContainer;
   const HomeStayItems({Key? key,
     required this.hotelModel,
-    this.marginRight = 0
+    this.marginRight = 0,
+    this.widthContainer = 0
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>  DetailHotelPage(hotelModel: hotelModel)),);
+      },
       child: Container(
         width: Dimentions.width170,
         margin: EdgeInsets.only(right: marginRight == 0? Dimentions.width15:marginRight, top: Dimentions.height10, bottom: Dimentions.height10,),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Dimentions.radius10),
-            color: wcolor,
+            color: wColor,
             boxShadow: const [
               BoxShadow(
                 color: Color(0x3F000000),
@@ -75,7 +83,7 @@ class HomeStayItems extends StatelessWidget {
                           children: [
                             SizedBox(
                               width: Dimentions.width50*3,
-                                child: MiddleText(text: hotelModel.hotelName, color: wcolor, maxLines: 1,)
+                                child: MiddleText(text: hotelModel.hotelName, color: wColor, maxLines: 1,)
                             ),
                             SizedBox(height: Dimentions.height10/2,),
                             Row(
@@ -102,7 +110,10 @@ class HomeStayItems extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(child: Icon(Icons.location_on, color: iconsColors, size: Dimentions.font18,),),
-                      Expanded(child: MiddleText(text: hotelModel.address, maxLines: 2, size: Dimentions.font15, ))
+                      SizedBox(
+                        height: Dimentions.height45,
+                          width:  widthContainer == 0? Dimentions.width45*3 : widthContainer,
+                          child: MiddleText(text: hotelModel.address, maxLines: 2, size: Dimentions.font15, ))
                     ],
                   ),
                   Container(

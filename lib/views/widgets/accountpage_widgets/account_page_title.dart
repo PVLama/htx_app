@@ -14,9 +14,9 @@ class AccountTitle extends StatelessWidget {
     Icon(Icons.notifications_outlined, size: Dimentions.height35,)
   ];
   final List<Widget> texts = [
-    SmallText(text: "Yêu thích", color: bcolor, size: Dimentions.font16,),
-    SmallText(text: "Đơn hàng", color: bcolor, size: Dimentions.font16,),
-    SmallText(text: "Thông báo", color: bcolor, size: Dimentions.font16,)
+    SmallText(text: "Yêu thích", color: bColor, size: Dimentions.font16,),
+    SmallText(text: "Đơn hàng", color: bColor, size: Dimentions.font16,),
+    SmallText(text: "Thông báo", color: bColor, size: Dimentions.font16,)
   ];
 
   @override

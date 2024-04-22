@@ -9,7 +9,7 @@ class BottomSheetWidget extends StatelessWidget {
   const BottomSheetWidget({
     Key? key,
     required this.child,
-    this.backgroundColor = wcolor,
+    this.backgroundColor = wColor,
   }) : super(key: key);
 
   @override

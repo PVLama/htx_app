@@ -25,7 +25,7 @@ class _ProductPageState extends State<ProductPage> {
   final List<Widget> _texts = [
     MiddleText(text: "Tất cả",),
     MiddleText(text: "Đặc sản",),
-    MiddleText(text: "Trang phục",),
+    MiddleText(text: "Thổ cẩm",),
     MiddleText(text: "Hoa Quả",),
     MiddleText(text: "Đồ uống",),
     MiddleText(text: "Đồ thủ công",),
@@ -51,19 +51,19 @@ class _ProductPageState extends State<ProductPage> {
       case 0:
         return [const AllProducts()];
       case 1:
-        productList = _productViewModel.createProducts;
+        productList = _productViewModel.createDacSan;
         break;
       case 2:
-        productList = _productViewModel.createProducts2;
+        productList = _productViewModel.createThoCam;
         break;
       case 3:
-        productList = _productViewModel.createProducts3;
+        productList = _productViewModel.createHoaQua;
         break;
       case 4:
-        productList = _productViewModel.createProducts2;
+        productList = _productViewModel.createDoUong;
         break;
       case 5:
-        productList = _productViewModel.createProducts;
+        productList = _productViewModel.createDoThuCong;
         break;
       default:
         return [];
@@ -85,7 +85,7 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: wcolor,
+      backgroundColor: wColor,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
@@ -94,8 +94,8 @@ class _ProductPageState extends State<ProductPage> {
           padding: EdgeInsets.only(top: Dimentions.height10),
           child: Column(
             children: [
-              BigText(text: "Sản Phẩm", color: wcolor,size: Dimentions.font10*3,),
-              MiddleText(text: "tại HTX Mường Hoa", color: wcolor, size: Dimentions.font18,),
+              BigText(text: "Sản Phẩm", color: wColor,size: Dimentions.font10*3,),
+              MiddleText(text: "tại HTX Mường Hoa", color: wColor, size: Dimentions.font18,),
             ],
           ),
         ),
@@ -106,7 +106,7 @@ class _ProductPageState extends State<ProductPage> {
                     MaterialPageRoute(builder: (context) => const NavigationMenu()), // Chuyển hướng đến trang ProductPage
                   );
                 },
-                icon: Icon(Icons.arrow_back, size: Dimentions.height30, color: wcolor,),
+                icon: Icon(Icons.arrow_back, size: Dimentions.height30, color: wColor,),
         ),
         actions: [
           IconButton(
@@ -115,7 +115,7 @@ class _ProductPageState extends State<ProductPage> {
                     context: context,
                     delegate: CustomSearch(productViewModel: _productViewModel));
               },
-              icon: Icon(Icons.search_rounded, size: Dimentions.height30, color: wcolor,))
+              icon: Icon(Icons.search_rounded, size: Dimentions.height30, color: wColor,))
         ],
       ),
       body: Column(
@@ -155,7 +155,7 @@ class _ProductPageState extends State<ProductPage> {
                     decoration: BoxDecoration(
                       color: current == index
                           ? const Color(0xFFb3d89c).withOpacity(0.5)
-                          : wcolor,
+                          : wColor,
                       border: Border.all(
                           color: const Color(0xFF3f7d20),
                           strokeAlign: BorderSide.strokeAlignInside,
@@ -186,7 +186,7 @@ class _ProductPageState extends State<ProductPage> {
                       width: Dimentions.width30/5,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: bcolor
+                        color: bColor
                       ),
                     ),
                 )
@@ -207,7 +207,7 @@ class _ProductPageState extends State<ProductPage> {
         itemCount: _pages[current].length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 0.73
+            childAspectRatio: 0.82
         ),
         itemBuilder: (BuildContext context, int index){
           return Container(

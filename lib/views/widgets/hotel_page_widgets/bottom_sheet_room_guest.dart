@@ -40,7 +40,7 @@ class BottomSheetHotelPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                MiddleText(text: "Phòng",color: bcolor, size: Dimentions.font18,),
+                MiddleText(text: "Phòng",color: bColor, size: Dimentions.font18,),
                 SizedBox(
                   width: Dimentions.width50*5,
                   child: Row(
@@ -78,7 +78,7 @@ class BottomSheetHotelPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                MiddleText(text: "Người",color: bcolor, size: Dimentions.font18,),
+                MiddleText(text: "Người",color: bColor, size: Dimentions.font18,),
                 SizedBox(
                   width: Dimentions.width50*5,
                   child: Row(
@@ -109,14 +109,14 @@ class BottomSheetHotelPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ButtonWidget(
-                  text: BigText(text: "Hủy bỏ", color: bcolor, size: Dimentions.font18,),
+                  text: BigText(text: "Hủy bỏ", color: bColor, size: Dimentions.font18,),
                   color: const Color(0xffe0e0e0ff),
                   height: Dimentions.height50,
                   width: Dimentions.width180,
                   borderRadius: Dimentions.radius10, onPressed: () {Navigator.of(context).pop();},
                 ),
                 ButtonWidget(
-                  text: BigText(text: "Chọn", color: wcolor, size: Dimentions.font18,),
+                  text: BigText(text: "Chọn", color: wColor, size: Dimentions.font18,),
                   color: mainColor,
                   height: Dimentions.height50,
                   width: Dimentions.width180,

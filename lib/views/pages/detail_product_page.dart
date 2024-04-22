@@ -37,7 +37,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
   bool _isScrolled = false;
   DBHelper? dbHelper = DBHelper();
 
-  ProductData data = ProductData();
+  ProductData dataProduct = ProductData();
   int activeIndex = 0;
 
   @override
@@ -87,7 +87,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
         onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, color: _isScrolled ? bcolor : wcolor, size: Dimentions.height30,)),
+          icon: Icon(Icons.arrow_back, color: _isScrolled ? bColor : wColor, size: Dimentions.height30,)),
     actions: [
         Padding(
           padding: EdgeInsets.only(right: Dimentions.width10),
@@ -97,17 +97,17 @@ class _DetailProductPageState extends State<DetailProductPage> {
                 child: Badge(
                   label: Consumer<CartProvider>(
                     builder: (context, value, child){
-                      return SmallText(text: value.getCounter().toString(), color: wcolor,);
+                      return SmallText(text: value.getCounter().toString(), color: wColor,);
                     },
                   ),
-                    child: Icon(Icons.shopping_cart_outlined, color: _isScrolled ? bcolor : wcolor, size: Dimentions.height25,))),
+                    child: Icon(Icons.shopping_cart_outlined, color: _isScrolled ? bColor : wColor, size: Dimentions.height25,))),
           ),
         ),
       ],
     pinned: true,
     expandedHeight: Dimentions.height50*5,
     toolbarHeight: Dimentions.height50,
-    title: BigText(text: "Chi tiết sản phẩm", size: Dimentions.font25 ,color: _isScrolled ? bcolor : wcolor,),
+    title: BigText(text: "Chi tiết sản phẩm", size: Dimentions.font24 ,color: _isScrolled ? bColor : wColor,),
     flexibleSpace: FlexibleSpaceBar(
       background: Column(
         children: [
@@ -119,9 +119,9 @@ class _DetailProductPageState extends State<DetailProductPage> {
               autoPlayInterval: const Duration(seconds: 3),
               onPageChanged: (index, reason) => setState(() => activeIndex = index),
             ),
-            itemCount: data.imageDetail.length,
+            itemCount: dataProduct.imageDetail.length,
             itemBuilder: (BuildContext context, int index, int realIndex) {
-              final image = data.imageDetail[index];
+              final image = dataProduct.imageDetail[index];
               return buildImage(image, index);
             },
           ),
@@ -133,7 +133,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
   );
 
   Widget buildBody() => SliverToBoxAdapter(
-  child: Column(
+    child: Column(
       children: [
         Container(
           margin: EdgeInsets.symmetric(horizontal: Dimentions.width10, vertical: Dimentions.height15),
@@ -146,9 +146,9 @@ class _DetailProductPageState extends State<DetailProductPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BigText(text: widget.product.productName, size: Dimentions.font20,),
+              BigText(text: widget.product.name, size: Dimentions.font20,),
               MiddleText(text: widget.product.price.toString() + ' ₫', size: Dimentions.font18, color: redColor,),
-              MiddleText(text: "Nhãn hiệu: ${widget.product.brand}", size: Dimentions.font18,),
+              MiddleText(text: "Nhãn hiệu: ${widget.product.category}", size: Dimentions.font18,),
             ],
           ),
         ),
@@ -167,7 +167,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
               SizedBox(
                 height: Dimentions.height50*4,
                 child: SingleChildScrollView(
-                  child: ExpandableTextWidget(text: widget.product.introduce),
+                  child: ExpandableTextWidget(text: widget.product.description),
                 ),
               )
             ],
@@ -218,7 +218,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
     activeIndex: activeIndex,
     count: 5,
     effect: WormEffect(
-      activeDotColor: bcolor,
+      activeDotColor: bColor,
       dotColor: greyColor,
       dotHeight: Dimentions.height10,
       dotWidth: Dimentions.width10,
@@ -227,7 +227,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
 
   Widget buildImage(Image image, int index) => SizedBox(
     width: double.infinity,
-    child: data.imageDetail[index],
+    child: dataProduct.imageDetail[index],
   );
 
   Widget buildBottomBar() => Container(
@@ -243,7 +243,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
           margin: EdgeInsets.only(left: Dimentions.width25),
           height: Dimentions.height50,
           decoration: BoxDecoration(
-              color: wcolor,
+              color: wColor,
               borderRadius: BorderRadius.circular(Dimentions.radius10)
           ),
           child: Row(
@@ -275,12 +275,12 @@ class _DetailProductPageState extends State<DetailProductPage> {
                   CartModel(
                       id: index,
                       productId: index.toString(),
-                      productName: product.productName.toString(),
+                      productName: product.name.toString(),
                       initialPrice: product.price,
                       productPrice: product.price,
                       quantity: 1,
-                      unitTag: product.productName.toString(),
-                      image: product.productName.toString()
+                      unitTag: product.name.toString(),
+                      image: product.name.toString()
                   )
               ).then((value){
                 print("Product is added");
@@ -312,16 +312,16 @@ class _DetailProductPageState extends State<DetailProductPage> {
                   decoration: const BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        color: wcolor,
+                        color: wColor,
                         width: 1
                       )
                     )
                   ),
-                  child: Center(child: MiddleText(text: "80.000.000" + "₫", size: Dimentions.font18, color: wcolor,)),
+                  child: Center(child: MiddleText(text: "80.000.000" + "₫", size: Dimentions.font18, color: wColor,)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: Dimentions.height10/2),
-                  child: BigText(text: "Add to cart", color: wcolor, size: Dimentions.font18,),
+                  child: BigText(text: "Add to cart", color: wColor, size: Dimentions.font18,),
                 )
               ],
             ),

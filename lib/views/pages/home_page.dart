@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
     pinned: true,
     floating: false,
     stretch: true,
-    backgroundColor: wcolor,
+    backgroundColor: wColor,
     expandedHeight: Dimentions.expandedHeight,
     toolbarHeight: Dimentions.toolbarHeight,
     flexibleSpace: FlexibleSpaceBar(

@@ -1,29 +1,13 @@
-import 'dart:ui';
+import 'dart:io';
 import 'package:flutter/material.dart';
 
 class ProductModel {
-  final Color image;
-  final String productName;
+  final Image image;
+  final String name;
   final int price;
-  final String brand;
-  final String introduce;
+  final String category;
+  final String description;
 
-  ProductModel(
-      this.image,
-      this.productName,
-      this.price,
-      this.brand,
-      this.introduce);
-
-
-  // factory ProductModel.fromJson(Map<String, dynamic> json) {
-  //   return ProductModel(
-  //     image: json['tourName'],
-  //     productName: json['comment'],
-  //     price: json['evaluation'],
-  //     brand: json['address'],
-  //     introduce: json['image'],
-  //   );
-  // }
-
+  ProductModel(this.image, this.name, this.price, this.category, this.description);
 }
+

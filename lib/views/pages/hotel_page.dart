@@ -70,18 +70,18 @@ class _HotelPageState extends State<HotelPage> {
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarBrightness: _isScrolled ? Brightness.dark : Brightness.light,
     ),
-    title:  BigText(text: "Trang chủ", color: _isScrolled ? bcolor : wcolor,),
+    title:  BigText(text: "Trang chủ", color: _isScrolled ? bColor : wColor,),
     leading: IconButton(
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => const NavigationMenu()),);
       }, 
-      icon: Icon(Icons.arrow_back,size: Dimentions.height25, color: _isScrolled ? bcolor : wcolor, ),),
+      icon: Icon(Icons.arrow_back,size: Dimentions.height25, color: _isScrolled ? bColor : wColor, ),),
     automaticallyImplyLeading: false,
     elevation: 0,
     floating: true,
     stretch: true,
     pinned: true,
-    backgroundColor: wcolor,
+    backgroundColor: wColor,
     expandedHeight: Dimentions.height50*8,
     toolbarHeight: Dimentions.height50,
     flexibleSpace: LayoutBuilder(
@@ -93,10 +93,10 @@ class _HotelPageState extends State<HotelPage> {
             stretchModes: const [
               StretchMode.zoomBackground,
             ],
-            title: AnimatedOpacity(
-                opacity: isTitleVisible ? 1.0 : 0.0,
-                duration: const Duration(milliseconds: 0),
-             child: const AppBarHotelPage()
+            title:  AnimatedOpacity(
+              opacity: isTitleVisible ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 0), // Thời gian làm mờ
+              child: const AppBarHotelPage(),
             ),
             centerTitle: true,
             titlePadding: EdgeInsets.only(top: Dimentions.height20 * 2),
@@ -124,12 +124,13 @@ class _HotelPageState extends State<HotelPage> {
           crossAxisSpacing: 12,
           mainAxisSpacing: 15,
           crossAxisCount: 2,
-          childAspectRatio: 0.70
+          childAspectRatio: 0.69
         ),
       delegate: SliverChildBuilderDelegate(
             (context, index) {
           return HomeStayItems(
               hotelModel: hotelViewModel.createHotels[index],
+            widthContainer: Dimentions.width10*14.5,
             marginRight: 1,
           );
         },

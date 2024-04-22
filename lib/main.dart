@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
           ),
           // home: const NavigationMenu(),
-          home: const NavigationMenu(),
+          home: PageLogin(),
           // PageLogin(),
         );
       })

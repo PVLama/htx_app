@@ -16,6 +16,8 @@ import 'package:htx_mh/utills/responsives/dimentions.dart';
 // import '../utills/responsives/dimentions.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/navigations_menu.dart';
+
 class PageLogin extends StatelessWidget {
   final TextEditingController _textController = TextEditingController();
   PageLogin({super.key});
@@ -76,12 +78,12 @@ class PageLogin extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(Dimentions.radius10/2)
                             ),
                             filled: true,
-                            fillColor: wcolor,
+                            fillColor: wColor,
                             hintText: "Email",
-                            hintStyle: TextStyle(fontSize: Dimentions.font15, color: bcolor.withOpacity(0.4)),
-                            prefixIcon: Icon(Icons.email_outlined,color: bcolor.withOpacity(0.5), size: Dimentions.font20,),
+                            hintStyle: TextStyle(fontSize: Dimentions.font15, color: bColor.withOpacity(0.4)),
+                            prefixIcon: Icon(Icons.email_outlined,color: bColor.withOpacity(0.5), size: Dimentions.font20,),
                             suffixIcon: IconButton(
-                              icon: Icon(Icons.clear, color: bcolor.withOpacity(0.5)),
+                              icon: Icon(Icons.clear, color: bColor.withOpacity(0.5)),
                               iconSize: Dimentions.font20,
                               onPressed: (){
                                 _textController.clear();
@@ -100,12 +102,12 @@ class PageLogin extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(Dimentions.radius10/2)
                             ),
                             filled: true,
-                            fillColor: wcolor,
+                            fillColor: wColor,
                             hintText: "Mật khẩu",
-                            hintStyle: TextStyle(fontSize: Dimentions.font15, color: bcolor.withOpacity(0.4)),
-                            prefixIcon: Icon(Icons.lock_outline,color: bcolor.withOpacity(0.5), size: Dimentions.font20,),
+                            hintStyle: TextStyle(fontSize: Dimentions.font15, color: bColor.withOpacity(0.4)),
+                            prefixIcon: Icon(Icons.lock_outline,color: bColor.withOpacity(0.5), size: Dimentions.font20,),
                             suffixIcon: IconButton(
-                              icon: Icon(Icons.remove_red_eye_outlined, color: bcolor.withOpacity(0.5),),
+                              icon: Icon(Icons.remove_red_eye_outlined, color: bColor.withOpacity(0.5),),
                               iconSize: Dimentions.font20,
                               onPressed: (){},
                             ),
@@ -124,7 +126,9 @@ class PageLogin extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(20)
                                   ),
                                 ),
-                                  onPressed: (){},
+                                  onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => const NavigationMenu()),);
+                                  },
                                   child: const Center(child:
                                      Text('Đăng nhập',style: TextStyle(
                                     color: Colors.white,

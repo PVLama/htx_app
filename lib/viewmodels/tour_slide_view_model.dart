@@ -11,7 +11,7 @@ class TourSlideViewModel {
     TourModel(
       image: Colors.red,
       tourName: "Tour 2 ngày 1 đêm",
-      address: "Địa chỉ A",
+      address: "Tả Van",
       evaluation: "4.5",
       comment: "1450",
     ),

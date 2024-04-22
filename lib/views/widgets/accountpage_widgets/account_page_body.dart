@@ -17,12 +17,12 @@ class AccountPageBody extends StatelessWidget {
     Icon(Icons.logout, size: Dimentions.height25,),
   ];
   final List<Widget> texts = [
-    SmallText(text: "Quản lý hóa đơn", color: bcolor, size: Dimentions.font18,),
-    SmallText(text: "Về HTX Mường Hoa", color: bcolor, size: Dimentions.font18,),
-    SmallText(text: "Liên hệ", color: bcolor, size: Dimentions.font18,),
-    SmallText(text: "Chính sách và bảo mật", color: bcolor, size: Dimentions.font18,),
-    SmallText(text: "Gửi phản hồi", color: bcolor, size: Dimentions.font18,),
-    SmallText(text: "Đăng xuất", color: bcolor, size: Dimentions.font18,)
+    SmallText(text: "Quản lý hóa đơn", color: bColor, size: Dimentions.font18,),
+    SmallText(text: "Về HTX Mường Hoa", color: bColor, size: Dimentions.font18,),
+    SmallText(text: "Liên hệ", color: bColor, size: Dimentions.font18,),
+    SmallText(text: "Chính sách và bảo mật", color: bColor, size: Dimentions.font18,),
+    SmallText(text: "Gửi phản hồi", color: bColor, size: Dimentions.font18,),
+    SmallText(text: "Đăng xuất", color: bColor, size: Dimentions.font18,)
   ];
 
   @override
